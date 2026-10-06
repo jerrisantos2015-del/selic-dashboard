@@ -1,0 +1,13 @@
+{
+  "atualizacao": "05/10/2026 11:12",
+  "selicAtual": 13.75,
+  "anoAtual": 2026,
+  "mesAtual": 11,
+  "periodoAtual": "Nov/2026",
+  "proximoCopom": "29/10/2026",
+  "totalMeses": 297,
+  "fonte": "BCB — Banco Central do Brasil — api.bcb.gov.br",
+  "serie": "SGS 432",
+  "autor": "JERRI DOS SANTOS",
+  "versao": "1.0"
+}

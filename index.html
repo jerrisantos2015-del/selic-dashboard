@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard SELIC — Taxa Básica de Juros do Brasil — BCB">
+    <meta name="theme-color" content="#003366">
+    <meta property="og:title"       content="SELIC Dashboard — BCB">
+    <meta property="og:description" content="Taxa Básica de Juros do Brasil — 1999-2026">
+    <title>SELIC Dashboard — BCB | Taxa Básica de Juros do Brasil</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"  rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+    /* ── CSS VARIABLES (Light / Dark) ──────────────────────────── */
+    :root {
+        --bcb:       #003366;
+        --bcb-mid:   #004a8f;
+        --bcb-light: #0066cc;
+        --gold:      #f0a500;
+        --bg:        #f0f4f8;
+        --bg2:       #ffffff;
+        --card:      #ffffff;
+        --txt:       #1a2030;
+        --txt2:      #556070;
+        --txt3:      #8090a0;
+        --border:    #dde4ee;
+        --shadow:    0 2px 16px rgba(0,51,102,.08);
+        --shadow-h:  0 8px 32px rgba(0,51,102,.16);
+        --up:        #c0392b;
+        --dn:        #27ae60;
+        --nu:        #7f8c8d;
+        scroll-behavior: smooth; /* ✅ MELHORIA: scroll suave */
+    }
+    [data-theme="dark"] {
+        --bg:     #0d1117; --bg2:    #161b22; --card:   #1c2128;
+        --txt:    #e6edf3; --txt2:   #8b949e; --txt3:   #6e7681;
+        --border: #30363d;
+        --shadow: 0 2px 16px rgba(0,0,0,.35);
+    }
+
+    /* ── Countdown COPOM ─────────────────────────────── */
+#copomCountdown {
+    background: rgba(255,255,255,.18);
+    border-radius: 10px;
+    padding: 1px 7px;
+    font-weight: 700;
+    font-size: 10px;
+    }
+
+    /* ── RESET & BASE ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        background: var(--bg);
+        color: var(--txt);
+        margin: 0;
+        transition: background .3s, color .3s;
+    }
+
+    /* ── UPDATE BANNER ──────────────────────────────────────────── */
+    #banner {
+        background: linear-gradient(90deg, #1a472a, #2d6a4f);
+        color: #fff; font-size: 12px;
+        padding: 7px 20px;
+        display: flex; justify-content: space-between; align-items: center;
+    }
+    #banner .close-btn {
+        background: none; border: none;
+        color: rgba(255,255,255,.7); cursor: pointer; font-size: 14px;
+    }
+
+    /* ── HEADER ─────────────────────────────────────────────────── */
+    header {
+        background: linear-gradient(135deg, var(--bcb) 0%, var(--bcb-mid) 60%, var(--bcb-light) 100%);
+        color: #fff; padding: 14px 24px;
+        box-shadow: 0 4px 16px rgba(0,51,102,.3);
+    }
+    .hdr-title { font-size: 20px; font-weight: 800; margin: 0; letter-spacing: .3px; }
+    .hdr-sub   { font-size: 11px; opacity: .85; margin: 3px 0 0; }
+    .btn-dark {
+        background: rgba(255,255,255,.12);
+        border: 1px solid rgba(255,255,255,.25);
+        color: #fff; border-radius: 20px;
+        padding: 4px 12px; font-size: 11px;
+        cursor: pointer; transition: background .2s;
+    }
+    .btn-dark:hover { background: rgba(255,255,255,.22); }
+    .copom-pill {
+        background: rgba(255,255,255,.15);
+        border: 1px solid rgba(255,255,255,.2);
+        border-radius: 20px; padding: 4px 12px;
+        font-size: 11px; font-weight: 600;
+        display: inline-flex; align-items: center; gap: 5px;
+    }
+
+    /* ── STATS BAR ──────────────────────────────────────────────── */
+    #statsBar {
+        background: var(--bg2); border-bottom: 1px solid var(--border);
+        padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 0;
+    }
+    .stat-item {
+        padding: 6px 18px; text-align: center;
+        border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-lbl {
+        font-size: 9px; text-transform: uppercase;
+        letter-spacing: 1px; color: var(--txt3); font-weight: 700;
+    }
+    .stat-val {
+        font-size: 20px; font-weight: 800;
+        color: var(--bcb); line-height: 1.1;
+    }
+    [data-theme="dark"] .stat-val { color: #58a6ff; }
+    .stat-chg  { font-size: 10px; font-weight: 600; margin-top: 2px; }
+    .up-clr    { color: var(--up); }
+    .dn-clr    { color: var(--dn); }
+    .nu-clr    { color: var(--nu); }
+
+    /* ── FILTER BAR ─────────────────────────────────────────────── */
+    #filterBar {
+        background: var(--bg2); border-bottom: 1px solid var(--border);
+        padding: 8px 24px; display: flex; align-items: center;
+        flex-wrap: wrap; gap: 6px;
+    }
+    .flbl { font-size: 11px; font-weight: 700; color: var(--txt3); }
+    .f-btn {
+        padding: 3px 14px; border-radius: 20px;
+        border: 1px solid var(--border);
+        background: var(--card); color: var(--txt2);
+        font-size: 11px; font-weight: 600;
+        cursor: pointer; transition: all .2s;
+    }
+    .f-btn:hover, .f-btn.on {
+        background: var(--bcb); color: #fff; border-color: var(--bcb);
+    }
+    .srch {
+        padding: 4px 14px; border-radius: 20px;
+        border: 1px solid var(--border);
+        background: var(--card); color: var(--txt);
+        font-size: 11px; width: 180px; outline: none;
+    }
+    .srch:focus { border-color: var(--bcb); }
+    .act-btn {
+        padding: 4px 11px; border-radius: 6px;
+        border: 1px solid var(--border);
+        background: var(--card); color: var(--txt2);
+        font-size: 11px; font-weight: 600;
+        cursor: pointer; transition: all .2s;
+        display: inline-flex; align-items: center; gap: 4px;
+    }
+    .act-btn:hover { border-color: var(--bcb); color: var(--bcb); }
+    #searchRes {
+        background: var(--bg2); border-bottom: 1px solid var(--border);
+        padding: 6px 24px; font-size: 11px; color: var(--txt2);
+        display: none;
+    }
+    .s-pill {
+        background: rgba(0,51,102,.1); border-radius: 4px;
+        padding: 2px 6px; margin: 0 3px; display: inline-block;
+    }
+
+    /* ── MAIN GRID ──────────────────────────────────────────────── */
+    main { padding: 18px 22px; }
+    .chart-card {
+        background: var(--card); border: 1px solid var(--border);
+        border-radius: 12px; box-shadow: var(--shadow);
+        overflow: hidden; transition: box-shadow .3s, transform .25s;
+        margin-bottom: 18px; opacity: 0;
+        animation: fadeUp .5s ease forwards;
+    }
+    .chart-card:nth-child(2) { animation-delay: .1s; }
+    .chart-card:nth-child(3) { animation-delay: .2s; }
+    .chart-card:nth-child(4) { animation-delay: .3s; }
+    .chart-card:hover { box-shadow: var(--shadow-h); transform: translateY(-2px); }
+    @keyframes fadeUp {
+        from { opacity:0; transform:translateY(12px); }
+        to   { opacity:1; transform:translateY(0); }
+    }
+    .c-hdr {
+        padding: 13px 18px 8px; border-bottom: 1px solid var(--border);
+        display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .c-title { font-size: 13px; font-weight: 700; margin: 0; color: var(--txt); }
+    .c-sub   { font-size: 10px; color: var(--txt3); margin: 2px 0 0; }
+    .c-badge {
+        font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px;
+        background: rgba(0,51,102,.1); color: var(--bcb);
+    }
+    [data-theme="dark"] .c-badge {
+        background: rgba(88,166,255,.15); color: #58a6ff;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────────────── */
+    footer {
+        background: var(--bg2); border-top: 1px solid var(--border);
+        padding: 10px 24px; font-size: 11px; color: var(--txt3);
+        text-align: center;
+    }
+
+    /* ── TOAST ──────────────────────────────────────────────────── */
+    #toasts {
+        position: fixed; bottom: 20px; right: 20px;
+        z-index: 9999; display: flex; flex-direction: column; gap: 8px;
+    }
+    .toast-item {
+        background: var(--bcb); color: #fff;
+        padding: 9px 16px; border-radius: 8px;
+        font-size: 12px; font-weight: 600;
+        box-shadow: 0 4px 16px rgba(0,0,0,.25);
+        animation: fadeUp .3s ease; cursor: pointer;
+    }
+
+    /* ── MODAL ──────────────────────────────────────────────────── */
+    .modal-content { background: var(--card); color: var(--txt); border: 1px solid var(--border); }
+    .modal-header  { background: var(--bcb); color: #fff; border-bottom: none; }
+    .modal-header .btn-close { filter: invert(1); }
+    .form-select, .form-control {
+        background: var(--bg); color: var(--txt); border-color: var(--border);
+    }
+
+    /* ── BOTÃO VOLTAR AO TOPO ✅ MELHORIA ───────────────────────── */
+    #btnTopo {
+        position: fixed; bottom: 70px; right: 20px;
+        width: 38px; height: 38px; border-radius: 50%;
+        background: var(--bcb); color: #fff; border: none;
+        font-size: 16px; cursor: pointer; z-index: 9998;
+        display: none; align-items: center; justify-content: center;
+        box-shadow: 0 3px 12px rgba(0,0,0,.25);
+        transition: opacity .3s, transform .2s;
+    }
+    #btnTopo:hover { transform: translateY(-2px); }
+    #btnTopo.show  { display: flex; }
+
+    /* ── SEÇÃO FISCAL ───────────────────────────────────────────── */
+    .sec-fiscal    { padding: 0 0 28px; }
+    .sec-divider   {
+        text-align: center; padding: 28px 0 14px;
+        border-top: 3px solid var(--border); margin-bottom: 20px;
+    }
+    .sec-divider-title { font-size: 1.3rem; font-weight: 800; margin: 0 0 4px; color: var(--txt); }
+    .sec-divider-sub   { font-size: .82rem; color: var(--txt3); margin: 0; }
+
+    /* KPI Cards Fiscais */
+    .kpi-fiscal-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+    .kpi-f-card {
+        flex: 1 1 180px; display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        padding: 12px 10px; border-radius: 10px; color: #fff;
+        text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,.15); min-height: 86px;
+    }
+    .kpi-f-teal   { background: linear-gradient(135deg,#006666,#009999); }
+    .kpi-f-indigo { background: linear-gradient(135deg,#333399,#5566bb); }
+    .kpi-f-red    { background: linear-gradient(135deg,#800000,#cc2200); }
+    .kpi-f-green  { background: linear-gradient(135deg,#004d00,#009933); }
+    .kpi-f-lbl    { font-size:.70rem; font-weight:700; letter-spacing:.06em; opacity:.80; }
+    .kpi-f-val    { font-size:1.55rem; font-weight:800; line-height:1.1; margin:4px 0 2px; }
+    .kpi-f-unit   { font-size:.68rem; opacity:.72; }
+
+    /* Layout 2 colunas gráficos fiscais */
+    .chart-row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px; }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+        main { padding: 10px; }
+        #statsBar { padding: 8px 10px; }
+        .stat-item { padding: 4px 10px; }
+        .stat-val  { font-size: 16px; }
+        .hdr-title { font-size: 15px; }
+        #filterBar { padding: 8px 10px; }
+        .srch      { width: 130px; }
+    }
+    @media (max-width: 800px) {
+        .chart-row-2col { grid-template-columns: 1fr; }
+        .kpi-f-card     { flex: 1 1 130px; }
+    }
+
+    /* ── PRINT ──────────────────────────────────────────────────── */
+    @media print {
+        #banner, #filterBar, #toasts, #btnTopo,
+        .act-btn, .btn-dark, .copom-pill { display: none !important; }
+        .chart-card { break-inside: avoid; box-shadow: none; }
+        body { background: #fff !important; }
+    }
+    </style>
+</head>
+<body>
+
+<noscript>
+    <div style="background:#b71c1c;color:#fff;padding:12px 20px;text-align:center;font-family:sans-serif">
+        ⚠️ Este dashboard requer JavaScript habilitado para funcionar.
+    </div>
+</noscript>
+
+<!-- [1] UPDATE BANNER -->
+<div id="banner">
+    <span id="bannerTxt">
+        <i class="fas fa-spinner fa-spin me-1"></i> Carregando dados BCB...
+    </span>
+    <button class="close-btn" onclick="document.getElementById('banner').style.display='none'">
+        <i class="fas fa-times"></i>
+    </button>
+</div>
+
+<!-- [2] HEADER -->
+<header>
+    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+        <div>
+            <h1 class="hdr-title">
+                <i class="fas fa-chart-line me-2"></i>SELIC Dashboard
+            </h1>
+            <p class="hdr-sub">
+                Taxa Básica de Juros do Brasil &mdash;
+                Banco Central do Brasil &mdash;
+                Série SGS 432 &mdash; 1999–2026
+            </p>
+        </div>
+        <div class="d-flex align-items-center gap-2 flex-wrap">
+            <span class="copom-pill">
+    <i class="fas fa-calendar-check"></i>
+    Próx. COPOM: <strong id="copomDt">29/Out/2026</strong>
+    <span id="copomCountdown" style="font-size:10px;opacity:.85;margin-left:4px"></span>
+</span>
+            <button class="btn-dark" id="darkBtn" onclick="toggleDark()">
+                <i class="fas fa-moon me-1"></i>Dark
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- [3] STATS BAR -->
+<div id="statsBar">
+    <div class="stat-item">
+        <div class="stat-lbl">SELIC Atual</div>
+        <div class="stat-val" id="sSelic">--</div>
+        <div class="stat-chg" id="sSelicLbl">--</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-lbl">Variação</div>
+        <div class="stat-val" id="sVar" style="font-size:17px">--</div>
+        <div class="stat-chg nu-clr">p.p.</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-lbl">Período</div>
+        <div class="stat-val" id="sPer" style="font-size:15px">--</div>
+        <div class="stat-chg nu-clr">Referência</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-lbl">Mín. Histórico</div>
+        <div class="stat-val" id="sMin" style="color:var(--dn)">--</div>
+        <div class="stat-chg nu-clr">a.a.</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-lbl">Máx. Histórico</div>
+        <div class="stat-val" id="sMax" style="color:var(--up)">--</div>
+        <div class="stat-chg nu-clr">a.a.</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-lbl">Total Meses</div>
+        <div class="stat-val" id="sCnt" style="font-size:17px">--</div>
+        <div class="stat-chg nu-clr">registros</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-lbl">Média Geral</div>
+        <div class="stat-val" id="sAvg" style="font-size:17px">--</div>
+        <div class="stat-chg nu-clr">a.a.</div>
+    </div>
+</div>
+
+<!-- [4] FILTER + ACTIONS BAR -->
+<div id="filterBar">
+    <span class="flbl"><i class="fas fa-filter me-1"></i>Período:</span>
+    <button class="f-btn on" id="f-completo" onclick="setFiltro('completo')">Completo</button>
+    <button class="f-btn"    id="f-5a"       onclick="setFiltro('5a')">Últ. 5 anos</button>
+    <button class="f-btn"    id="f-24m"      onclick="setFiltro('24m')">Últ. 24m</button>
+    <button class="f-btn"    id="f-12m"      onclick="setFiltro('12m')">Últ. 12m</button>
+
+    <span style="width:1px;height:22px;background:var(--border);margin:0 4px"></span>
+
+    <input class="srch" id="srchBox" type="text" autocomplete="off"
+           placeholder="🔍 Buscar ano, mês, taxa..."
+           oninput="buscar(this.value)">
+
+    <div class="ms-auto d-flex gap-2 flex-wrap">
+        <button class="act-btn" onclick="abrirComparador()" title="Comparar 2 anos">
+            <i class="fas fa-code-compare"></i>
+            <span class="d-none d-sm-inline">Comparar</span>
+        </button>
+        <button class="act-btn" onclick="dlCSV()" title="Download CSV">
+            <i class="fas fa-file-csv"></i>
+            <span class="d-none d-sm-inline">CSV</span>
+        </button>
+        <button class="act-btn" onclick="dlPDF()" title="Imprimir/PDF">
+            <i class="fas fa-file-pdf"></i>
+            <span class="d-none d-sm-inline">PDF</span>
+        </button>
+        <button class="act-btn" onclick="compartilhar()" title="Compartilhar">
+            <i class="fas fa-share-alt"></i>
+            <span class="d-none d-sm-inline">Compartilhar</span>
+        </button>
+    </div>
+</div>
+
+<!-- Search Results -->
+<div id="searchRes"></div>
+
+<!-- [5] MAIN -->
+<main>
+    <div class="row g-3">
+
+        <!-- G1: SELIC Histórica -->
+        <div class="col-12 col-xl-6">
+            <div class="chart-card">
+                <div class="c-hdr">
+                    <div>
+                        <div class="c-title">
+                            <i class="fas fa-chart-line me-1" style="color:#003366"></i>
+                            SELIC Meta — Evolução Histórica
+                        </div>
+                        <div class="c-sub" id="g1sub">BCB SGS 432 | % a.a.</div>
+                    </div>
+                    <span class="c-badge" id="g1badge">--</span>
+                </div>
+                <div style="padding:6px 4px">
+                    <div id="g1" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- G2: Focus vs Real -->
+        <div class="col-12 col-xl-6">
+            <div class="chart-card">
+                <div class="c-hdr">
+                    <div>
+                        <div class="c-title">
+                            <i class="fas fa-chart-bar me-1" style="color:#1b5e20"></i>
+                            Focus vs Realizado — Indicadores Econômicos
+                        </div>
+                        <div class="c-sub">2026 (Focus) vs 2024 (Realizado)</div>
+                    </div>
+                </div>
+                <div style="padding:6px 4px">
+                    <div id="g2" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- G3: COPOM -->
+        <div class="col-12 col-xl-6">
+            <div class="chart-card">
+                <div class="c-hdr">
+                    <div>
+                        <div class="c-title">
+                            <i class="fas fa-gavel me-1" style="color:#824d00"></i>
+                            COPOM — Histórico de Decisões SELIC
+                        </div>
+                        <div class="c-sub">Últimos 36 meses | 🔴 Alta | 🟢 Queda</div>
+                    </div>
+                </div>
+                <div style="padding:6px 4px">
+                    <div id="g3" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- G4: Variações -->
+        <div class="col-12 col-xl-6">
+            <div class="chart-card">
+                <div class="c-hdr">
+                    <div>
+                        <div class="c-title">
+                            <i class="fas fa-arrows-up-down me-1" style="color:#4a1488"></i>
+                            Variações Mensais SELIC (p.p.)
+                        </div>
+                        <div class="c-sub">Últimos 24 meses | 🔴 Alta | 🟢 Queda</div>
+                    </div>
+                </div>
+                <div style="padding:6px 4px">
+                    <div id="g4" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- fim row g-3 -->
+
+    <!-- ══════════════════════════════════════════════════
+         SEÇÃO FISCAL — PIB · Dívida · Resultado Fiscal
+         ══════════════════════════════════════════════ -->
+    <div class="sec-fiscal" id="secaoFiscal">
+
+        <div class="sec-divider">
+            <h2 class="sec-divider-title">
+                📊 Indicadores Fiscais &amp; Macroeconômicos
+            </h2>
+            <p class="sec-divider-sub">
+                PIB &nbsp;·&nbsp; Dívida Pública &nbsp;·&nbsp; Resultado Fiscal
+                &nbsp;|&nbsp; Fonte: BCB-SGS &nbsp;|&nbsp; 1999–2026
+            </p>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="kpi-fiscal-row" id="kpiFiscalRow">
+            <div class="kpi-f-card kpi-f-teal">
+                <span class="kpi-f-lbl"  id="kf-pib-lbl">PIB NOMINAL</span>
+                <span class="kpi-f-val"  id="kf-pib-val">—</span>
+                <span class="kpi-f-unit">R$ Trilhões</span>
+            </div>
+            <div class="kpi-f-card kpi-f-indigo">
+                <span class="kpi-f-lbl"  id="kf-div-lbl">DÍVIDA BRUTA</span>
+                <span class="kpi-f-val"  id="kf-div-val">—</span>
+                <span class="kpi-f-unit">% do PIB</span>
+            </div>
+            <div class="kpi-f-card kpi-f-red">
+                <span class="kpi-f-lbl"  id="kf-res-lbl">RES. PRIMÁRIO</span>
+                <span class="kpi-f-val"  id="kf-res-val">—</span>
+                <span class="kpi-f-unit">% do PIB &nbsp;·&nbsp; + superávit / − déficit</span>
+            </div>
+            <div class="kpi-f-card kpi-f-green">
+                <span class="kpi-f-lbl"  id="kf-var-lbl">VAR. PIB</span>
+                <span class="kpi-f-val"  id="kf-var-val">—</span>
+                <span class="kpi-f-unit">Crescimento Real Anual</span>
+            </div>
+        </div>
+
+        <!-- G5: PIB — largura total -->
+        <div class="chart-card" style="margin-bottom:16px">
+            <div class="c-hdr">
+                <div>
+                    <div class="c-title">
+                        <i class="fas fa-chart-bar me-1" style="color:#006699"></i>
+                        PIB do Brasil — Nominal (R$ bi) e Variação Real (%)
+                    </div>
+                    <div class="c-sub">BCB SGS 4505 + 7326 &nbsp;|&nbsp; 1999–2026</div>
+                </div>
+            </div>
+            <div style="padding:6px 4px">
+                <div id="g5" style="height:300px"></div>
+            </div>
+        </div>
+
+        <!-- G6 + G7 lado a lado -->
+        <div class="chart-row-2col">
+            <div class="chart-card">
+                <div class="c-hdr">
+                    <div>
+                        <div class="c-title">
+                            <i class="fas fa-chart-line me-1" style="color:#333399"></i>
+                            Dívida Pública — % do PIB
+                        </div>
+                        <div class="c-sub">BCB SGS 13762 + 4191 &nbsp;|&nbsp; Bruta vs Líquida</div>
+                    </div>
+                </div>
+                <div style="padding:6px 4px">
+                    <div id="g6" style="height:300px"></div>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="c-hdr">
+                    <div>
+                        <div class="c-title">
+                            <i class="fas fa-scale-balanced me-1" style="color:#800000"></i>
+                            Resultado Fiscal — % do PIB
+                        </div>
+                        <div class="c-sub">BCB SGS 4652 + 7547 &nbsp;|&nbsp; 🟢 Superávit &nbsp; 🔴 Déficit</div>
+                    </div>
+                </div>
+                <div style="padding:6px 4px">
+                    <div id="g7" style="height:300px"></div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- fim sec-fiscal -->
+
+<!-- ══════════════════════════════════════════════
+     G8 — SELIC Média vs PIB (lado a lado)
+     ══════════════════════════════════════════ -->
+<div class="chart-card" style="margin-top:8px">
+    <div class="c-hdr">
+        <div>
+            <div class="c-title">
+                <i class="fas fa-chart-line me-1" style="color:#003366"></i>
+                SELIC Média vs PIB — Correlação Anual
+            </div>
+            <div class="c-sub">
+                SELIC média a.a. (eixo esq.) + PIB Var. Real % (barras)
+                &nbsp;|&nbsp; 1999–2026
+            </div>
+        </div>
+    </div>
+    <div style="padding:6px 4px">
+        <div id="g8" style="height:280px"></div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TABELA — Últimos 36 meses
+     ══════════════════════════════════════════ -->
+<div class="chart-card" style="margin-top:8px">
+    <div class="c-hdr">
+        <div>
+            <div class="c-title">
+                <i class="fas fa-table me-1" style="color:#003366"></i>
+                Histórico SELIC — Últimos 36 meses
+            </div>
+            <div class="c-sub">
+                Taxa mensal + variação p.p. &nbsp;|&nbsp;
+                🔴 Alta &nbsp; 🟢 Queda &nbsp; ► Mantida
+            </div>
+        </div>
+    </div>
+    <div style="padding:8px 12px;max-height:340px;overflow-y:auto">
+        <div id="tabelaDados">
+            <p style="text-align:center;color:#999;padding:20px">
+                Carregando tabela...
+            </p>
+        </div>
+    </div>
+</div>
+
+</main>
+
+<!-- [6] FOOTER -->
+<footer>
+    <i class="fas fa-building-columns me-1"></i>
+    Fonte: <strong>Banco Central do Brasil</strong> — api.bcb.gov.br |
+    SGS Série 432 | BCB Focus Olinda |
+    Autor: <strong>JERRI DOS SANTOS</strong> |
+    <span id="footerTs">--</span> |
+    &copy; <span id="footerAno"></span><!-- ✅ ano dinâmico -->
+</footer>
+
+<!-- Toasts -->
+<div id="toasts"></div>
+
+<!-- ✅ MELHORIA: Botão Voltar ao Topo -->
+<button id="btnTopo" title="Voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- [7] COMPARADOR MODAL -->
+<div class="modal fade" id="compModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-code-compare me-2"></i>Comparador de Anos
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label class="form-label fw-bold" style="font-size:12px">Ano 1:</label>
+                        <select class="form-select form-select-sm" id="cAno1" onchange="renderComp()"></select>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label fw-bold" style="font-size:12px">Ano 2:</label>
+                        <select class="form-select form-select-sm" id="cAno2" onchange="renderComp()"></select>
+                    </div>
+                </div>
+                <div id="gComp" style="height:300px"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script>
+'use strict';
+
+// ═══════════════════════════════════════════════════
+// ESTADO GLOBAL
+// ═══════════════════════════════════════════════════
+const D = {
+    hist:   [],
+    anual:  [],
+    prev:   [],
+    meta:   {},
+    fiscal: { status: 'nao_carregado', anos: [] }
+};
+let filtro = 'completo';
+let dark   = false;
+const CH   = {};
+
+const M3 = ['Jan','Fev','Mar','Abr','Mai','Jun',
+            'Jul','Ago','Set','Out','Nov','Dez'];
+const MF = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
+            'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+async function init() {
+    // Ano dinâmico no footer ✅
+    document.getElementById('footerAno').textContent = new Date().getFullYear();
+
+    // Restaurar dark mode salvo
+    if (localStorage.getItem('sd') === '1') aplicarDark(true, false);
+
+    // Botão "Voltar ao Topo" — mostrar após 300px de scroll ✅
+    window.addEventListener('scroll', () => {
+        document.getElementById('btnTopo').classList.toggle('show', window.scrollY > 300);
+    });
+
+    try {
+        await carregarJSON();
+    } catch(e) {
+        console.warn('JSON não encontrado, usando dados de exemplo:', e.message);
+        carregarExemplo();
+    }
+
+    renderTudo();
+    atualizarStats();
+    atualizarBanner();
+    lerURL();
+}
+
+// ═══════════════════════════════════════════════════
+// CARREGAR JSON ✅ BUG CORRIGIDO — estrutura restaurada
+// ═══════════════════════════════════════════════════
+async function carregarJSON() {
+    const r = await fetch('./data/selic_data.json');
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const json = await r.json();
+
+    // ── Histórico mensal
+    D.hist = (json.historico_mensal || []).map(d => {
+        const taxa = (d.taxa && d.taxa > 0 && d.taxa < 1)
+            ? +(d.taxa * 100).toFixed(4)
+            : (d.taxa || 0);
+        return {
+            ...d, taxa,
+            periodo: `${M3[(d.mes||1)-1]}/${d.ano}`,
+            nome:    MF[(d.mes||1)-1],
+            variacao: d.variacao || 0,
+        };
+    });
+    // Recalcular variações mensais
+    D.hist.forEach((d, i) => {
+        if (i > 0) d.variacao = +(d.taxa - D.hist[i-1].taxa).toFixed(2);
+    });
+
+    // ── Consolidado anual
+    D.anual = json.consolidado_anual || [];
+
+    // ── Previsão: snake_case → camelCase
+    D.prev = (json.previsao || []).map(d => ({
+        ano:         d.ano,
+        selicFocus:  d.selic_focus,
+        selicReal:   d.selic_real,
+        ipcaFocus:   d.ipca_focus,
+        ipcaReal:    d.ipca_real,
+        pibFocus:    d.pib_focus,
+        pibReal:     d.pib_real,
+        cambioFocus: d.cambio_focus,
+        cambioReal:  d.cambio_real,
+        igpmFocus:   d.igpm_focus,
+        igpmReal:    d.igpm_real,
+    }));
+
+    // ── Fiscal (Fase 2D) ✅ CORRIGIDO — era o código errado aqui antes
+    D.fiscal = json.fiscal || { status: 'aba_nao_encontrada', anos: [] };
+
+    // ── Meta e Painel ✅ CORRIGIDO — estava fora da função antes
+    const p  = json.painel || {};
+    const mt = json.meta   || {};
+    D.meta = {
+        selicAtual:   p.selic_atual,
+        mesAtual:     p.mes_ref,
+        anoAtual:     p.ano_ref,
+        proximoCopom: '29/Out/2026',
+        atualizacao:  mt.gerado_em_br || '',
+        fonte:        mt.fonte || 'BCB-SGS',
+    };
+
+    console.log(`✅ ${D.hist.length} meses | ${D.prev.length} previsões | fiscal: ${D.fiscal.status}`);
+}
+
+// ═══════════════════════════════════════════════════
+// DADOS DE EXEMPLO (fallback sem JSON)
+// ═══════════════════════════════════════════════════
+function carregarExemplo() {
+    const src = [
+        [1999,[45,45,45,34,34,23.5,23,22,19.5,19,19,19]],
+        [2000,[19,19,19,19,18.5,17.5,17,17,16.5,16.5,16.5,15.75]],
+        [2001,[15.25,15.25,15.75,16.25,16.75,18.25,19,19,19,19,19,19]],
+        [2002,[19,18.75,18.5,18,18.5,18.5,18,18,18,21,21,25]],
+        [2003,[25,25.5,26.5,26.5,26,26.5,24.5,22,20,19,19,16.5]],
+        [2004,[16.5,16.5,16,16,16,16,16,16,16.25,16.75,17.25,17.75]],
+        [2005,[18.25,18.75,19.25,19.5,19.75,19.75,19.75,19.75,19.5,19,18.5,18]],
+        [2006,[17.25,17.25,16.5,15.75,15.5,15.25,15,14.75,14.25,13.75,13.25,13.25]],
+        [2007,[13,13,12.75,12.5,12.5,12,11.5,11.5,11.25,11.25,11.25,11.25]],
+        [2008,[11.25,11.25,11.25,11.75,12.25,12.25,13,13,13.75,13.75,13.75,13.75]],
+        [2009,[12.75,12.75,11.25,10.25,10.25,9.25,8.75,8.75,8.75,8.75,8.75,8.75]],
+        [2010,[8.75,8.75,8.75,9.5,9.5,10.25,10.75,10.75,10.75,10.75,10.75,10.75]],
+        [2011,[11.25,11.25,11.75,12,12.25,12.25,12.5,12.5,12,12,12,11]],
+        [2012,[10.5,10.5,9.75,9,9,8.5,8,7.5,7.25,7.25,7.25,7.25]],
+        [2013,[7.25,7.25,7.25,7.5,8,8,8.5,9,9,9.5,10,10]],
+        [2014,[10.5,10.75,10.75,11,11,11,11,11,11,11.25,11.75,11.75]],
+        [2015,[12.25,12.75,12.75,13.25,13.25,13.75,14.25,14.25,14.25,14.25,14.25,14.25]],
+        [2016,[14.25,14.25,14.25,14.25,14.25,14.25,14.25,14.25,14.25,14,13.75,13.75]],
+        [2017,[13,13,12.25,11.25,11.25,10.25,9.25,8.25,8.25,7.5,7.5,7]],
+        [2018,[6.75,6.75,6.5,6.5,6.5,6.5,6.5,6.5,6.5,6.5,6.5,6.5]],
+        [2019,[6.5,6.5,6.5,6.5,6.5,6.5,6,5.5,5.5,5,5,4.5]],
+        [2020,[4.25,4.25,3.75,3.25,3.25,2.25,2.25,2,2,2,2,2]],
+        [2021,[2,2,2.75,2.75,3.5,4.25,5.25,5.25,6.25,7.75,7.75,9.25]],
+        [2022,[10.75,10.75,11.75,12.75,13.25,13.25,13.75,13.75,13.75,13.75,13.75,13.75]],
+        [2023,[13.75,13.75,13.75,13.75,13.75,13.75,13.25,13.25,12.75,12.25,12.25,11.75]],
+        [2024,[11.25,11.25,10.75,10.5,10.5,10.5,10.5,10.5,10.75,11.25,11.25,12.25]],
+        [2025,[13.25,13.25,14.25,14.75,14.75,14.75,15,15,15,15,null,null]],
+        [2026,[15,15,15,15,15,15,15,15,15,15,13.75,null]]
+    ];
+    D.hist = [];
+    src.forEach(([y, ms]) => {
+        ms.forEach((t, mi) => {
+            if (t !== null) D.hist.push({
+                ano: y, mes: mi+1, taxa: t,
+                nome: MF[mi], periodo: `${M3[mi]}/${y}`, variacao: 0
+            });
+        });
+    });
+    D.hist.forEach((d, i) => {
+        d.variacao = i > 0 ? +(d.taxa - D.hist[i-1].taxa).toFixed(2) : 0;
+    });
+
+    D.prev = [
+        {ano:2020,selicReal:2,   ipcaReal:4.52, pibReal:-3.28,cambioReal:5.20,igpmReal:23.14},
+        {ano:2021,selicReal:9.25,ipcaReal:10.06,pibReal:4.76, cambioReal:5.58,igpmReal:17.78},
+        {ano:2022,selicReal:13.75,ipcaReal:5.79,pibReal:3.02, cambioReal:5.22,igpmReal:9.71},
+        {ano:2023,selicReal:11.75,ipcaReal:4.62,pibReal:3.24, cambioReal:4.84,igpmReal:-3.18},
+        {ano:2024,selicReal:12.25,ipcaReal:4.83,pibReal:3.42, cambioReal:6.19,igpmReal:6.61},
+        {ano:2026,selicFocus:13.5,ipcaFocus:4.99,pibFocus:1.86,igpmFocus:4.76}
+    ];
+
+    D.meta = {
+        selicAtual: 13.75, mesAtual: 11, anoAtual: 2026,
+        proximoCopom: '29/Out/2026',
+        atualizacao: new Date().toLocaleString('pt-BR'),
+        fonte: 'Dados de exemplo (execute exportar_json.py para dados reais)'
+    };
+
+    // ✅ CORRIGIDO — D.fiscal estava ausente aqui
+    D.fiscal = { status: 'aba_nao_encontrada', anos: [] };
+
+    document.getElementById('bannerTxt').innerHTML =
+        '⚠️ Usando dados de exemplo. Execute <strong>exportar_json.py</strong> para dados reais do BCB.';
+}
+
+// ═══════════════════════════════════════════════════
+// FILTRAR DADOS
+// ═══════════════════════════════════════════════════
+function dadosFiltrados() {
+    const a = D.hist, n = a.length;
+    if (!n) return [];
+    switch(filtro) {
+        case '12m': return a.slice(Math.max(0, n-12));
+        case '24m': return a.slice(Math.max(0, n-24));
+        case '5a':  return a.slice(Math.max(0, n-60));
+        default:    return a;
+    }
+}
+
+// ═══════════════════════════════════════════════════
+// HIGHCHARTS THEME HELPER
+// ═══════════════════════════════════════════════════
+function hcTheme() {
+    return {
+        txt:  dark ? '#e6edf3' : '#333',
+        grid: dark ? '#21262d' : '#f0f4f8',
+        bg:   dark ? '#1c2128' : '#ffffff'
+    };
+}
+
+// ═══════════════════════════════════════════════════
+// RENDER TUDO
+// ═══════════════════════════════════════════════════
+function renderTudo() {
+    renderG1(); renderG2(); renderG3(); renderG4(); construirFiscal();
+    popularCompSelects();
+}
+
+// ═══════════════════════════════════════════════════
+// G1 — SELIC Histórica
+// ═══════════════════════════════════════════════════
+function renderG1() {
+    const data = dadosFiltrados();
+    if (!data.length) return;
+
+    const {txt, grid, bg} = hcTheme();
+    const vals = data.map(d => d.taxa);
+    const lbls = data.map(d => d.periodo);
+    const avg  = +(vals.reduce((s,v) => s+v, 0) / vals.length).toFixed(1);
+    const last = vals[vals.length-1];
+    const tick = Math.max(1, Math.floor(data.length / 14));
+
+    document.getElementById('g1badge').textContent = `${last?.toFixed(2)}% a.a.`;
+    document.getElementById('g1sub').textContent   = `BCB SGS 432 | % a.a. | Média: ${avg}%`;
+
+    if (CH.g1) CH.g1.destroy();
+    CH.g1 = Highcharts.chart('g1', {
+        chart:  { type:'line', backgroundColor:bg, animation:{duration:800},
+                  style:{fontFamily:'Inter,sans-serif'} },
+        title:  { text:null }, credits:{ enabled:false },
+        legend: { enabled:true, itemStyle:{color:txt, fontSize:'11px'} },
+        xAxis:  { categories:lbls,
+                  labels:{ step:tick, style:{color:txt,fontSize:'10px'}, rotation:-30 },
+                  lineColor:grid, tickColor:grid },
+        yAxis:  { title:{ text:'% a.a.', style:{color:txt} },
+                  labels:{ style:{color:txt,fontSize:'10px'} },
+                  gridLineColor:grid },
+        tooltip: {
+            backgroundColor:bg, style:{color:txt},
+            formatter() {
+                return `<b>${this.x}</b><br/>
+                        <span style="color:#003366">●</span>
+                        SELIC: <b>${this.y?.toFixed(2)}% a.a.</b>`;
+            }
+        },
+        plotOptions: { line:{ marker:{ enabled:data.length<=36, radius:3 } } },
+        series: [
+            { name:'SELIC % a.a.', data:vals, color:'#003366', lineWidth:2, zIndex:2 },
+            { name:`Média: ${avg}%`, data:Array(vals.length).fill(avg),
+              color:'#e74c3c', dashStyle:'Dash', lineWidth:1.5,
+              marker:{enabled:false}, zIndex:1 }
+        ]
+    });
+}
+
+// ═══════════════════════════════════════════════════
+// G2 — Focus vs Real ✅ CORRIGIDO — null não vira 0
+// ═══════════════════════════════════════════════════
+function renderG2() {
+    const {txt, grid, bg} = hcTheme();
+    const cats  = ['SELIC','IPCA','PIB','Câmbio','IGP-M'];
+    const fKeys = ['selicFocus','ipcaFocus','pibFocus','cambioFocus','igpmFocus'];
+    const rKeys = ['selicReal', 'ipcaReal', 'pibReal', 'cambioReal', 'igpmReal'];
+
+    const fRow = D.prev.find(d => d.ano === 2026) || {};
+    const rRow = D.prev.find(d => d.ano === 2024) || {};
+
+    // ✅ CORRIGIDO: ?? null preserva zero legítimo, mas não converte null em 0
+    const fVals = fKeys.map(k => fRow[k] ?? null);
+    const rVals = rKeys.map(k => rRow[k] ?? null);
+
+    if (CH.g2) CH.g2.destroy();
+    CH.g2 = Highcharts.chart('g2', {
+        chart:  { type:'column', backgroundColor:bg, animation:{duration:900},
+                  style:{fontFamily:'Inter,sans-serif'} },
+        title:  { text:null }, credits:{ enabled:false },
+        legend: { itemStyle:{color:txt, fontSize:'11px'} },
+        xAxis:  { categories:cats,
+                  labels:{ style:{color:txt,fontSize:'11px'} }, lineColor:grid },
+        yAxis:  { title:{ text:'% / R$', style:{color:txt} },
+                  labels:{ style:{color:txt,fontSize:'10px'} }, gridLineColor:grid },
+        tooltip: {
+            shared:true, backgroundColor:bg, style:{color:txt},
+            formatter() {
+                let s = `<b>${this.x}</b><br/>`;
+                this.points.forEach(p => {
+                    if (p.y != null)
+                        s += `<span style="color:${p.color}">●</span> ` +
+                             `${p.series.name}: <b>${p.y.toFixed(2)}</b><br/>`;
+                });
+                return s;
+            }
+        },
+        plotOptions: { column:{ borderRadius:4, groupPadding:.08 } },
+        series: [
+            { name:'Focus 2026',    data:fVals, color:'#0d47a1' },
+            { name:'Realizado 2024',data:rVals, color:'#1b5e20' }
+        ]
+    });
+}
+
+// ═══════════════════════════════════════════════════
+// G3 — COPOM
+// ═══════════════════════════════════════════════════
+function renderG3() {
+    const {txt, grid, bg} = hcTheme();
+    const src    = D.hist.slice(Math.max(0, D.hist.length-36));
+    const lbls   = src.map(d => d.periodo);
+    const selic  = src.map(d => d.taxa);
+    const vars   = src.map((d,i) => i===0 ? 0 : +(d.taxa - src[i-1].taxa).toFixed(2));
+    const bClrs  = vars.map(v => v > 0 ? '#c0392b' : v < 0 ? '#27ae60' : '#95a5a6');
+
+    if (CH.g3) CH.g3.destroy();
+    CH.g3 = Highcharts.chart('g3', {
+        chart:  { backgroundColor:bg, animation:{duration:850},
+                  style:{fontFamily:'Inter,sans-serif'} },
+        title:  { text:null }, credits:{ enabled:false },
+        legend: { itemStyle:{color:txt, fontSize:'11px'} },
+        xAxis:  { categories:lbls,
+                  labels:{ step:3, style:{color:txt,fontSize:'10px'}, rotation:-30 },
+                  lineColor:grid },
+        yAxis: [
+            { title:{ text:'SELIC % a.a.', style:{color:txt} },
+              labels:{ style:{color:txt,fontSize:'10px'} }, gridLineColor:grid },
+            { title:{ text:'Var. p.p.', style:{color:txt} },
+              labels:{ style:{color:txt,fontSize:'10px'} },
+              opposite:true, gridLineWidth:0 }
+        ],
+        tooltip:     { shared:true, backgroundColor:bg, style:{color:txt} },
+        plotOptions: { column:{ colorByPoint:true, borderRadius:2 } },
+        series: [
+            { name:'SELIC % a.a.', type:'line', data:selic,
+              color:'#824d00', lineWidth:2.5, yAxis:0, zIndex:2,
+              marker:{ enabled:src.length<=24, radius:4, fillColor:'#824d00' } },
+            { name:'Var. p.p.', type:'column',
+              data:vars, colors:bClrs, colorByPoint:true, yAxis:1, zIndex:1 }
+        ]
+    });
+}
+
+// ═══════════════════════════════════════════════════
+// G4 — Variações Mensais
+// ═══════════════════════════════════════════════════
+function renderG4() {
+    const {txt, grid, bg} = hcTheme();
+    const src   = D.hist.slice(Math.max(0, D.hist.length-24));
+    const lbls  = src.map(d => d.periodo);
+    const vars  = src.map((d,i) => i===0 ? 0 : +(d.taxa - src[i-1].taxa).toFixed(2));
+    const bClrs = vars.map(v => v > 0 ? '#c0392b' : v < 0 ? '#27ae60' : '#95a5a6');
+
+    if (CH.g4) CH.g4.destroy();
+    CH.g4 = Highcharts.chart('g4', {
+        chart:  { type:'column', backgroundColor:bg, animation:{duration:1000},
+                  style:{fontFamily:'Inter,sans-serif'} },
+        title:  { text:null }, credits:{ enabled:false },
+        legend: { enabled:false },
+        xAxis:  { categories:lbls,
+                  labels:{ step:2, style:{color:txt,fontSize:'10px'}, rotation:-30 },
+                  lineColor:grid },
+        yAxis:  { title:{ text:'p.p.', style:{color:txt} },
+                  labels:{ style:{color:txt,fontSize:'10px'} },
+                  gridLineColor:grid,
+                  plotLines:[{ value:0, color:grid, width:2, zIndex:5 }] },
+        tooltip: {
+            backgroundColor:bg, style:{color:txt},
+            formatter() {
+                const v=this.y, c=v>0?'#c0392b':v<0?'#27ae60':'#95a5a6';
+                const ic=v>0?'▲':v<0?'▼':'►';
+                return `<b>${this.x}</b><br/><span style="color:${c}">${ic}</span> <b>${v?.toFixed(2)} p.p.</b>`;
+            }
+        },
+        plotOptions: { column:{ colorByPoint:true, borderRadius:3, pointPadding:.08 } },
+        series: [{ name:'Var. p.p.', data:vars, colors:bClrs, colorByPoint:true }]
+    });
+}
+
+// ═══════════════════════════════════════════════════
+// STATS CARDS
+// ═══════════════════════════════════════════════════
+function atualizarStats() {
+    const h = D.hist;
+    if (!h.length) return;
+
+    const last = h[h.length-1], prev = h[h.length-2];
+    const cur  = last.taxa;
+    const chg  = prev ? +(cur - prev.taxa).toFixed(2) : 0;
+    const min  = Math.min(...h.map(d => d.taxa).filter(v => v > 0));
+    const max  = Math.max(...h.map(d => d.taxa));
+    const avg  = +(h.reduce((s,d) => s + d.taxa, 0) / h.length).toFixed(2);
+
+    document.getElementById('sSelic').textContent  = `${cur.toFixed(2)}%`;
+    document.getElementById('sVar').textContent    = `${chg>=0?'+':''}${chg.toFixed(2)}`;
+    document.getElementById('sVar').style.color    =
+        chg>0 ? 'var(--up)' : chg<0 ? 'var(--dn)' : 'var(--nu)';
+    document.getElementById('sSelicLbl').innerHTML =
+        chg>0 ? '<span class="up-clr">▲ Alta</span>'   :
+        chg<0 ? '<span class="dn-clr">▼ Queda</span>'  :
+                '<span class="nu-clr">► Mantida</span>';
+    document.getElementById('sPer').textContent  = `${M3[(last.mes||1)-1]}/${last.ano}`;
+    document.getElementById('sMin').textContent  = `${min.toFixed(2)}%`;
+    document.getElementById('sMax').textContent  = `${max.toFixed(2)}%`;
+    document.getElementById('sCnt').textContent  = h.length;
+    document.getElementById('sAvg').textContent  = `${avg}%`;
+    document.getElementById('footerTs').textContent = `Atualizado: ${D.meta.atualizacao || '--'}`;
+    if (D.meta.proximoCopom)
+        document.getElementById('copomDt').textContent = D.meta.proximoCopom;
+}
+
+// ═══════════════════════════════════════════════════
+// UPDATE BANNER
+// ═══════════════════════════════════════════════════
+function atualizarBanner() {
+    const h = D.hist;
+    if (!h.length) return;
+    const l = h[h.length-1];
+    document.getElementById('bannerTxt').innerHTML =
+        `✅ ${h.length} meses carregados (${h[0].periodo} → ${l.periodo}) | ` +
+        `SELIC: <strong>${l.taxa.toFixed(2)}%</strong> a.a. | ` +
+        `Fonte: BCB SGS 432 | ${D.meta.atualizacao||''}`;
+}
+
+// ═══════════════════════════════════════════════════
+// [1] FILTRO DE PERÍODO
+// ═══════════════════════════════════════════════════
+function setFiltro(f) {
+    filtro = f;
+    document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('on'));
+    document.getElementById(`f-${f}`).classList.add('on');
+    renderG1();
+    const u = new URL(location);
+    u.searchParams.set('p', f);
+    history.replaceState({}, '', u);
+    const lbl = {completo:'Completo','5a':'Últ. 5 anos','24m':'Últ. 24m','12m':'Últ. 12m'};
+    toast(`Período: ${lbl[f]||f}`, 'info');
+}
+
+// ═══════════════════════════════════════════════════
+// [2] BUSCA
+// ═══════════════════════════════════════════════════
+function buscar(q) {
+    const el = document.getElementById('searchRes');
+    q = q.trim().toLowerCase();
+    if (!q) { el.style.display='none'; return; }
+
+    const res = D.hist.filter(d => {
+        const p = d.periodo || '';
+        return p.toLowerCase().includes(q) ||
+               String(d.ano).includes(q)   ||
+               String(d.taxa).includes(q);
+    }).slice(0, 8);
+
+    el.style.display = 'block';
+    if (!res.length) {
+        el.innerHTML = `🔍 Nenhum resultado para "<b>${q}</b>"`;
+    } else {
+        const itens = res.map(d =>
+            `<span class="s-pill">${d.periodo}: <b>${d.taxa.toFixed(2)}%</b></span>`
+        ).join('');
+        el.innerHTML = `✅ ${res.length} resultado(s): ${itens}`;
+    }
+}
+
+// ═══════════════════════════════════════════════════
+// [3] DARK MODE
+// ═══════════════════════════════════════════════════
+function toggleDark() { aplicarDark(!dark, true); }
+
+function aplicarDark(isDark, salvar=true) {
+    dark = isDark;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    document.getElementById('darkBtn').innerHTML = dark
+        ? '<i class="fas fa-sun me-1"></i>Light'
+        : '<i class="fas fa-moon me-1"></i>Dark';
+    renderTudo();
+    if (salvar) {
+        localStorage.setItem('sd', dark ? '1' : '0');
+        toast(dark ? '🌙 Modo escuro' : '☀️ Modo claro', 'info');
+    }
+}
+
+// ═══════════════════════════════════════════════════
+// [4] COMPARADOR
+// ═══════════════════════════════════════════════════
+function popularCompSelects() {
+    const anos = [...new Set(D.hist.map(d => d.ano))].sort((a,b) => b-a);
+    ['cAno1','cAno2'].forEach((id, i) => {
+        document.getElementById(id).innerHTML = anos.map(a =>
+            `<option value="${a}" ${
+                (i===0 && a===anos[1]) || (i===1 && a===anos[0]) ? 'selected' : ''
+            }>${a}</option>`
+        ).join('');
+    });
+}
+
+function abrirComparador() {
+    new bootstrap.Modal(document.getElementById('compModal')).show();
+    setTimeout(renderComp, 400);
+}
+
+function renderComp() {
+    const a1 = +document.getElementById('cAno1').value;
+    const a2 = +document.getElementById('cAno2').value;
+    const {txt, grid, bg} = hcTheme();
+
+    const mk = yr => {
+        const d = D.hist.filter(x => x.ano===yr).sort((a,b) => a.mes-b.mes);
+        return M3.map((_, mi) => { const r=d.find(x=>x.mes===mi+1); return r?r.taxa:null; });
+    };
+
+    if (CH.comp) CH.comp.destroy();
+    CH.comp = Highcharts.chart('gComp', {
+        chart:  { type:'line', backgroundColor:bg, animation:{duration:600},
+                  style:{fontFamily:'Inter,sans-serif'} },
+        title:  { text:`SELIC: ${a1} vs ${a2}`, style:{color:txt,fontSize:'14px'} },
+        credits:{ enabled:false },
+        legend: { itemStyle:{color:txt} },
+        xAxis:  { categories:M3, labels:{style:{color:txt}}, lineColor:grid },
+        yAxis:  { title:{text:'% a.a.',style:{color:txt}},
+                  labels:{style:{color:txt}}, gridLineColor:grid },
+        tooltip:{ shared:true, backgroundColor:bg, style:{color:txt}, valueSuffix:'% a.a.' },
+        series: [
+            { name:String(a1), data:mk(a1), color:'#003366', lineWidth:2, marker:{radius:4} },
+            { name:String(a2), data:mk(a2), color:'#e74c3c', dashStyle:'Dash',
+              lineWidth:2, marker:{radius:4} }
+        ]
+    });
+}
+
+// ═══════════════════════════════════════════════════
+// [5] DOWNLOAD CSV
+// ═══════════════════════════════════════════════════
+function dlCSV() {
+    const data = dadosFiltrados();
+    let csv = '\uFEFFAno;Mês;Mês Nome;SELIC % a.a.;Variação p.p.\n';
+    data.forEach(d => {
+        csv += `${d.ano};${d.mes};${MF[d.mes-1]};` +
+               `${d.taxa?.toFixed(2).replace('.',',')};` +
+               `${d.variacao?.toFixed(2).replace('.',',')}\n`;
+    });
+    const b = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+    const a = Object.assign(document.createElement('a'), {
+        href: URL.createObjectURL(b),
+        download: `SELIC_${filtro}_${new Date().toISOString().slice(0,10)}.csv`
+    });
+    a.click();
+    URL.revokeObjectURL(a.href);
+    toast('✅ CSV exportado!', 'success');
+}
+
+// ═══════════════════════════════════════════════════
+// [6] PDF
+// ═══════════════════════════════════════════════════
+function dlPDF() {
+    toast('📄 Abrindo impressão...', 'info');
+    setTimeout(() => window.print(), 500);
+}
+
+// ═══════════════════════════════════════════════════
+// [7] COMPARTILHAR
+// ═══════════════════════════════════════════════════
+function compartilhar() {
+    const u = new URL(location);
+    u.searchParams.set('p', filtro);
+    u.searchParams.set('d', dark ? '1' : '0');
+    const url = u.toString();
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(url)
+            .then(() => toast('🔗 Link copiado!', 'success'))
+            .catch(() => fallbackCopy(url));
+    } else {
+        fallbackCopy(url);
+    }
+}
+
+function fallbackCopy(t) {
+    const i = document.createElement('input');
+    i.value = t; document.body.appendChild(i);
+    i.select(); document.execCommand('copy');
+    document.body.removeChild(i);
+    toast('🔗 Link copiado!', 'success');
+}
+
+// ═══════════════════════════════════════════════════
+// TOAST
+// ═══════════════════════════════════════════════════
+function toast(msg, tipo='info') {
+    const c = {success:'#1b5e20',error:'#b71c1c',info:'#003366',warning:'#e65100'};
+    const el = document.createElement('div');
+    el.className   = 'toast-item';
+    el.style.background = c[tipo] || c.info;
+    el.textContent = msg;
+    el.onclick     = () => el.remove();
+    document.getElementById('toasts').appendChild(el);
+    setTimeout(() => el.remove(), 3500);
+}
+
+// ═══════════════════════════════════════════════════
+// LER URL PARAMS
+// ═══════════════════════════════════════════════════
+function lerURL() {
+    const p   = new URLSearchParams(location.search);
+    const per = p.get('p');
+    if (per && ['completo','5a','24m','12m'].includes(per)) setFiltro(per);
+    if (p.get('d') === '1' && !dark) aplicarDark(true, false);
+}
+
+// ═══════════════════════════════════════════════════
+// FISCAL — G5 PIB · G6 Dívida · G7 Resultado
+// ═══════════════════════════════════════════════════
+function construirFiscal() {
+    const f = D.fiscal;
+
+    if (!f || f.status === 'aba_nao_encontrada' || !f.anos || !f.anos.length) {
+        const kpiRow = document.getElementById('kpiFiscalRow');
+        if (kpiRow && !document.getElementById('fiscalAviso')) {
+            const av = document.createElement('p');
+            av.id = 'fiscalAviso';
+            av.style.cssText = 'text-align:center;color:var(--txt3);padding:18px;font-size:13px';
+            av.innerHTML =
+                '⚠️ Dados fiscais não disponíveis.<br>' +
+                'Execute <code>CriarAbaMACRO()</code> + <code>AtualizarDadosFiscais()</code> ' +
+                'no Excel → salve → rode <code>exportar_json.py</code>.';
+            kpiRow.after(av);
+        }
+        return;
+    }
+
+    // ── KPI Cards
+    const ult = f.ultimo_ano;
+    const idx = ult != null ? f.anos.indexOf(ult) : -1;
+    if (idx >= 0) {
+        const set = (id, v) => { const el=document.getElementById(id); if(el) el.textContent=v; };
+        set('kf-pib-lbl', `PIB NOMINAL ${ult}`);
+        set('kf-div-lbl', `DÍVIDA BRUTA ${ult}`);
+        set('kf-res-lbl', `RES. PRIMÁRIO ${ult}`);
+        set('kf-var-lbl', `VAR. PIB ${ult}`);
+
+        const pibTri = (f.pib_tri  ||[])[idx];
+        const divBrt = (f.div_bruta||[])[idx];
+        const resPri = (f.res_prim ||[])[idx];
+        const pibVar = (f.pib_var  ||[])[idx];
+
+        set('kf-pib-val', pibTri != null ? `R$ ${pibTri.toFixed(3)} tri` : '—');
+        set('kf-div-val', divBrt != null ? `${divBrt.toFixed(1)}%` : '—');
+
+        const elRes = document.getElementById('kf-res-val');
+        if (elRes) {
+            if (resPri != null) {
+                elRes.textContent = (resPri >= 0 ? '+' : '') + resPri.toFixed(2) + '%';
+                elRes.style.color = resPri >= 0 ? '#afffcc' : '#ffaaaa';
+            } else { elRes.textContent = '—'; }
+        }
+        set('kf-var-val', pibVar != null ? (pibVar>=0?'+':'') + pibVar.toFixed(1)+'%' : '—');
+    }
+
+    const {txt, grid, bg} = hcTheme();
+
+    // ── G5: PIB R$bi (colunas) + Var.Real% (linha, eixo secundário)
+    if (CH.g5) CH.g5.destroy();
+    CH.g5 = Highcharts.chart('g5', {
+        chart:  { backgroundColor:bg, animation:{duration:800},
+                  style:{fontFamily:'Inter,sans-serif'} },
+        title:  { text:null }, credits:{ enabled:false },
+        legend: { enabled:true, itemStyle:{color:txt,fontSize:'11px'} },
+        xAxis:  { categories:f.anos,
+                  labels:{ style:{color:txt,fontSize:'10px'}, rotation:-30 },
+                  lineColor:grid, tickColor:grid },
+        yAxis: [
+            { title:{ text:'R$ Bilhões', style:{color:txt} },
+              labels:{ style:{color:txt,fontSize:'10px'} }, gridLineColor:grid },
+            { title:{ text:'Var. Real %', style:{color:txt} },
+              labels:{ style:{color:txt,fontSize:'10px'} },
+              opposite:true, gridLineWidth:0,
+              plotLines:[{ value:0, color:'#999', width:1, zIndex:5 }] }
+        ],
+        tooltip: {
+            shared:true, backgroundColor:bg, style:{color:txt},
+            formatter() {
+                let s = `<b>${this.x}</b><br/>`;
+                this.points.forEach(p => {
+                    if (p.y != null) {
+                        const isPct = p.series.name.includes('%');
+                        s += `<span style="color:${p.color}">●</span> ` +
+                             `${p.series.name}: <b>${isPct?'':'R$ '}${p.y.toFixed(1)}${isPct?'%':' bi'}</b><br/>`;
+                    }
+                });
+                return s;
+            }
+        },
+        plotOptions: { column:{ borderWidth:0, pointPadding:.05 } },
+        series: [
+            { name:'PIB (R$ bi)', type:'column', data:f.pib_bi,  color:'#006699', yAxis:0 },
+            { name:'Var. Real %', type:'line',   data:f.pib_var, color:'#ff6600',
+              yAxis:1, lineWidth:2, marker:{enabled:false} }
+        ]
+    });
+
+    // ── G6: Dívida Bruta vs Líquida % PIB
+    if (CH.g6) CH.g6.destroy();
+    CH.g6 = Highcharts.chart('g6', {
+        chart:  { type:'line', backgroundColor:bg, animation:{duration:800},
+                  style:{fontFamily:'Inter,sans-serif'} },
+        title:  { text:null }, credits:{ enabled:false },
+        legend: { enabled:true, itemStyle:{color:txt,fontSize:'11px'} },
+        xAxis:  { categories:f.anos,
+                  labels:{ style:{color:txt,fontSize:'10px'}, rotation:-30 },
+                  lineColor:grid, tickColor:grid },
+        yAxis:  { title:{ text:'% do PIB', style:{color:txt} },
+                  labels:{ style:{color:txt,fontSize:'10px'} },
+                  gridLineColor:grid, min:0 },
+        tooltip:{ shared:true, backgroundColor:bg, style:{color:txt}, valueSuffix:'% PIB' },
+        series: [
+            { name:'Dív. Bruta % PIB', data:f.div_bruta,
+              color:'#b22222', lineWidth:2, marker:{symbol:'circle', radius:3} },
+            { name:'Dív. Líq. % PIB',  data:f.div_liq,
+              color:'#ff8c00', lineWidth:2, dashStyle:'ShortDash',
+              marker:{symbol:'square', radius:3} }
+        ]
+    });
+
+    // ── G7: Resultado Primário + Nominal % PIB
+    // ✅ CORRIGIDO: removido array 'pos' não utilizado em mkBarras
+    const mkBarras  = arr => (arr||[]).map(v => ({
+        y:     v,
+        color: v == null ? 'transparent' : v >= 0 ? '#009933' : '#cc0000'
+    }));
+    const mkBarras2 = arr => (arr||[]).map(v => ({
+        y:     v,
+        color: v == null ? 'transparent' : v >= 0 ? '#66cc99' : '#ff6666'
+    }));
+
+    if (CH.g7) CH.g7.destroy();
+    CH.g7 = Highcharts.chart('g7', {
+        chart:  { type:'column', backgroundColor:bg, animation:{duration:800},
+                  style:{fontFamily:'Inter,sans-serif'} },
+        title:  { text:null }, credits:{ enabled:false },
+        legend: { enabled:true, itemStyle:{color:txt,fontSize:'11px'} },
+        xAxis:  { categories:f.anos,
+                  labels:{ style:{color:txt,fontSize:'10px'}, rotation:-30 },
+                  lineColor:grid, tickColor:grid },
+        yAxis:  { title:{ text:'% do PIB', style:{color:txt} },
+                  labels:{ style:{color:txt,fontSize:'10px'} },
+                  gridLineColor:grid,
+                  plotLines:[{ value:0, zIndex:5, width:1.5, color:dark?'#aaa':'#555' }] },
+        tooltip: {
+            shared:true, backgroundColor:bg, style:{color:txt},
+            formatter() {
+                let s = `<b>${this.x}</b><br/>`;
+                this.points.forEach(p => {
+                    if (p.y != null) {
+                        const ic = p.y >= 0 ? '🟢' : '🔴';
+                        s += `${ic} ${p.series.name}: <b>${p.y.toFixed(2)}%</b><br/>`;
+                    }
+                });
+                return s;
+            }
+        },
+        plotOptions: { column:{ borderWidth:0, groupPadding:.08, colorByPoint:true } },
+        series: [
+            { name:'Res. Primário % PIB', data:mkBarras(f.res_prim),  colorByPoint:true },
+            { name:'Res. Nominal % PIB',  data:mkBarras2(f.res_nom),  colorByPoint:true }
+        ]
+    });
+}
+
+// ═══════════════════════════════════════════════════
+// RESIZE
+// ═══════════════════════════════════════════════════
+window.addEventListener('resize', () => {
+    Object.values(CH).forEach(c => { try { c?.reflow(); } catch(_) {} });
+});
+
+// ════════════════════════════════════════════════════════════
+// COUNTDOWN COPOM
+// ════════════════════════════════════════════════════════════
+function iniciarCountdown() {
+    const COPOM_DATA = new Date('2026-10-29T18:00:00-03:00');
+
+    function atualizar() {
+        const agora = new Date();
+        const diff  = COPOM_DATA - agora;
+        const el    = document.getElementById('copomCountdown');
+        if (!el) return;
+
+        if (diff <= 0) {
+            el.textContent = '🔴 Hoje!';
+            el.style.background = 'rgba(255,50,50,.4)';
+            return;
+        }
+        const dias  = Math.floor(diff / 86400000);
+        const horas = Math.floor((diff % 86400000) / 3600000);
+        const mins  = Math.floor((diff % 3600000)  / 60000);
+
+        if (dias > 0) {
+            el.textContent = `${dias}d ${horas}h`;
+        } else if (horas > 0) {
+            el.textContent = `${horas}h ${mins}m`;
+            el.style.background = 'rgba(255,140,0,.4)';
+        } else {
+            el.textContent = `${mins}min`;
+            el.style.background = 'rgba(255,50,50,.4)';
+        }
+    }
+    atualizar();
+    setInterval(atualizar, 60000);
+}
+
+// ════════════════════════════════════════════════════════════
+// G8 — SELIC vs PIB Variação (mesma página, após fiscal)
+// ════════════════════════════════════════════════════════════
+function construirG8(data) {
+    const anual = data.consolidado_anual || [];
+    if (!anual.length) return;
+
+    const {txt, grid, bg} = hcTheme();
+    const anos  = anual.map(d => d.ano);
+    const selic = anual.map(d => d.tx_media);
+
+    // PIB var% vem do fiscal
+    const f = data.fiscal || {};
+    const pibMap = {};
+    if (f.anos) {
+        f.anos.forEach((a, i) => { pibMap[a] = (f.pib_var || [])[i]; });
+    }
+    const pibVar = anos.map(a => pibMap[a] ?? null);
+
+    if (CH.g8) CH.g8.destroy();
+    CH.g8 = Highcharts.chart('g8', {
+        chart:  { backgroundColor:bg, animation:{duration:800},
+                  style:{fontFamily:'Inter,sans-serif'} },
+        title:  { text: null },
+        credits:{ enabled: false },
+        legend: { enabled:true, itemStyle:{color:txt, fontSize:'11px'} },
+        xAxis:  { categories: anos,
+                  labels:{ style:{color:txt, fontSize:'10px'}, rotation:-30 },
+                  lineColor:grid, tickColor:grid },
+        yAxis: [
+            { title:{text:'SELIC Média % a.a.', style:{color:txt}},
+              labels:{style:{color:txt, fontSize:'10px'}},
+              gridLineColor:grid },
+            { title:{text:'PIB Var. Real %', style:{color:txt}},
+              labels:{style:{color:txt, fontSize:'10px'}},
+              opposite:true, gridLineWidth:0,
+              plotLines:[{value:0, color:'#999', width:1, zIndex:5}] }
+        ],
+        tooltip: {
+            shared:true, backgroundColor:bg, style:{color:txt},
+            formatter() {
+                let s = `<b>${this.x}</b><br/>`;
+                this.points.forEach(p => {
+                    if (p.y != null)
+                        s += `<span style="color:${p.color}">●</span> ` +
+                             `${p.series.name}: <b>${p.y.toFixed(2)}%</b><br/>`;
+                });
+                return s;
+            }
+        },
+        series: [
+            { name:'SELIC Média %', type:'line', data:selic,
+              color:'#003366', lineWidth:2, yAxis:0, marker:{enabled:false} },
+            { name:'PIB Var. Real %', type:'column', data:pibVar,
+              color:'#009933', yAxis:1,
+              negativeColor:'#cc0000', borderWidth:0 }
+        ]
+    });
+}
+
+// ════════════════════════════════════════════════════════════
+// TABELA DE DADOS (últimos 36 meses)
+// ════════════════════════════════════════════════════════════
+function construirTabela(data) {
+    const h   = data.historico_mensal || [];
+    const src = h.slice(Math.max(0, h.length - 36));
+    const el  = document.getElementById('tabelaDados');
+    if (!el) return;
+
+    const isDark = document.body.classList.contains('dark-mode');
+    const clrHdr = isDark ? '#1c2128' : '#003366';
+    const clrRow = isDark ? '#161b22' : '#f8faff';
+    const clrAlt = isDark ? '#1c2128' : '#ffffff';
+
+    let html = `<table style="width:100%;border-collapse:collapse;font-size:12px">
+    <thead>
+      <tr style="background:${clrHdr};color:#fff">
+        <th style="padding:7px 12px;text-align:center">Período</th>
+        <th style="padding:7px 12px;text-align:center">Ano</th>
+        <th style="padding:7px 12px;text-align:center">Mês</th>
+        <th style="padding:7px 12px;text-align:center">SELIC % a.a.</th>
+        <th style="padding:7px 12px;text-align:center">Variação p.p.</th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+    [...src].reverse().forEach((d, i) => {
+        const bg    = i % 2 === 0 ? clrRow : clrAlt;
+        const varCl = d.variacao > 0 ? '#c0392b' : d.variacao < 0 ? '#27ae60' : '#888';
+        const varIc = d.variacao > 0 ? '▲' : d.variacao < 0 ? '▼' : '►';
+        const varTx = d.variacao !== 0
+            ? `<span style="color:${varCl}">${varIc} ${Math.abs(d.variacao).toFixed(2)}</span>`
+            : `<span style="color:#888">► 0.00</span>`;
+        html += `<tr style="background:${bg}">
+          <td style="padding:5px 12px;text-align:center;font-weight:600">${d.periodo}</td>
+          <td style="padding:5px 12px;text-align:center">${d.ano}</td>
+          <td style="padding:5px 12px;text-align:center">${d.mes}</td>
+          <td style="padding:5px 12px;text-align:center;font-weight:700">${d.taxa?.toFixed(2)}%</td>
+          <td style="padding:5px 12px;text-align:center">${varTx}</td>
+        </tr>`;
+    });
+
+    html += '</tbody></table>';
+    el.innerHTML = html;
+}
+
+// ── Chamar em renderTudo() e init() ──────────────────────
+// Adicione ao final de renderTudo():
+//   construirG8(D);
+//   construirTabela(D);
+//   iniciarCountdown();
+
+// ═══════════════════════════════════════════════════
+// START
+// ═══════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

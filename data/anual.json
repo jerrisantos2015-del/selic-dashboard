@@ -1,0 +1,254 @@
+[
+  {
+    "ano": 2004,
+    "txInicio": 0.17,
+    "txFim": 0.18,
+    "media": 0.16,
+    "maxima": 0.18,
+    "minima": 0.16,
+    "varAnual": 0.01
+  },
+  {
+    "ano": 2005,
+    "txInicio": 0.18,
+    "txFim": 0.18,
+    "media": 0.19,
+    "maxima": 0.2,
+    "minima": 0.18,
+    "varAnual": -0.0
+  },
+  {
+    "ano": 2006,
+    "txInicio": 0.17,
+    "txFim": 0.13,
+    "media": 0.15,
+    "maxima": 0.17,
+    "minima": 0.13,
+    "varAnual": -0.04
+  },
+  {
+    "ano": 2007,
+    "txInicio": 0.13,
+    "txFim": 0.11,
+    "media": 0.12,
+    "maxima": 0.13,
+    "minima": 0.11,
+    "varAnual": -0.02
+  },
+  {
+    "ano": 2008,
+    "txInicio": 0.11,
+    "txFim": 0.14,
+    "media": 0.13,
+    "maxima": 0.14,
+    "minima": 0.11,
+    "varAnual": 0.03
+  },
+  {
+    "ano": 2009,
+    "txInicio": 0.13,
+    "txFim": 0.09,
+    "media": 0.1,
+    "maxima": 0.13,
+    "minima": 0.09,
+    "varAnual": -0.04
+  },
+  {
+    "ano": 2010,
+    "txInicio": 0.09,
+    "txFim": 0.11,
+    "media": 0.1,
+    "maxima": 0.11,
+    "minima": 0.09,
+    "varAnual": 0.02
+  },
+  {
+    "ano": 2011,
+    "txInicio": 0.11,
+    "txFim": 0.11,
+    "media": 0.12,
+    "maxima": 0.12,
+    "minima": 0.11,
+    "varAnual": -0.0
+  },
+  {
+    "ano": 2012,
+    "txInicio": 0.1,
+    "txFim": 0.07,
+    "media": 0.08,
+    "maxima": 0.1,
+    "minima": 0.07,
+    "varAnual": -0.03
+  },
+  {
+    "ano": 2013,
+    "txInicio": 0.07,
+    "txFim": 0.1,
+    "media": 0.08,
+    "maxima": 0.1,
+    "minima": 0.07,
+    "varAnual": 0.03
+  },
+  {
+    "ano": 2014,
+    "txInicio": 0.1,
+    "txFim": 0.12,
+    "media": 0.11,
+    "maxima": 0.12,
+    "minima": 0.1,
+    "varAnual": 0.01
+  },
+  {
+    "ano": 2015,
+    "txInicio": null,
+    "txFim": null,
+    "media": null,
+    "maxima": 0.0,
+    "minima": 0.0,
+    "varAnual": null
+  },
+  {
+    "ano": 2016,
+    "txInicio": 0.14,
+    "txFim": 0.14,
+    "media": 0.14,
+    "maxima": 0.14,
+    "minima": 0.14,
+    "varAnual": -0.0
+  },
+  {
+    "ano": 2017,
+    "txInicio": 0.13,
+    "txFim": 0.07,
+    "media": 0.1,
+    "maxima": 0.13,
+    "minima": 0.07,
+    "varAnual": -0.06
+  },
+  {
+    "ano": 2018,
+    "txInicio": 0.07,
+    "txFim": 0.07,
+    "media": 0.07,
+    "maxima": 0.07,
+    "minima": 0.07,
+    "varAnual": -0.01
+  },
+  {
+    "ano": 2019,
+    "txInicio": 0.07,
+    "txFim": 0.04,
+    "media": 0.06,
+    "maxima": 0.07,
+    "minima": 0.04,
+    "varAnual": -0.02
+  },
+  {
+    "ano": 2020,
+    "txInicio": 0.04,
+    "txFim": 0.02,
+    "media": 0.03,
+    "maxima": 0.04,
+    "minima": 0.02,
+    "varAnual": -0.02
+  },
+  {
+    "ano": 2021,
+    "txInicio": 0.02,
+    "txFim": 0.09,
+    "media": 0.05,
+    "maxima": 0.09,
+    "minima": 0.02,
+    "varAnual": 0.07
+  },
+  {
+    "ano": 2022,
+    "txInicio": 0.09,
+    "txFim": 0.14,
+    "media": 0.13,
+    "maxima": 0.14,
+    "minima": 0.09,
+    "varAnual": 0.05
+  },
+  {
+    "ano": 2023,
+    "txInicio": 0.14,
+    "txFim": 0.12,
+    "media": 0.13,
+    "maxima": 0.14,
+    "minima": 0.12,
+    "varAnual": -0.02
+  },
+  {
+    "ano": 2024,
+    "txInicio": 0.12,
+    "txFim": 0.12,
+    "media": 0.11,
+    "maxima": 0.12,
+    "minima": 0.1,
+    "varAnual": 0.01
+  },
+  {
+    "ano": 2025,
+    "txInicio": 0.13,
+    "txFim": 0.15,
+    "media": 0.15,
+    "maxima": 0.15,
+    "minima": 0.13,
+    "varAnual": 0.02
+  },
+  {
+    "ano": 2026,
+    "txInicio": 0.15,
+    "txFim": 13.75,
+    "media": null,
+    "maxima": 13.75,
+    "minima": 0.14,
+    "varAnual": 13.6
+  },
+  {
+    "ano": 1999,
+    "txInicio": 0.42,
+    "txFim": 0.19,
+    "media": null,
+    "maxima": 0.42,
+    "minima": 0.19,
+    "varAnual": -0.23
+  },
+  {
+    "ano": 2000,
+    "txInicio": 0.19,
+    "txFim": 0.16,
+    "media": 0.17,
+    "maxima": 0.19,
+    "minima": 0.16,
+    "varAnual": -0.03
+  },
+  {
+    "ano": 2001,
+    "txInicio": 0.15,
+    "txFim": 0.19,
+    "media": 0.18,
+    "maxima": 0.19,
+    "minima": 0.15,
+    "varAnual": 0.04
+  },
+  {
+    "ano": 2002,
+    "txInicio": 0.19,
+    "txFim": 0.25,
+    "media": 0.19,
+    "maxima": 0.25,
+    "minima": 0.18,
+    "varAnual": 0.06
+  },
+  {
+    "ano": 2003,
+    "txInicio": 0.26,
+    "txFim": 0.17,
+    "media": 0.23,
+    "maxima": 0.27,
+    "minima": 0.17,
+    "varAnual": -0.09
+  }
+]

@@ -1,0 +1,2505 @@
+{
+  "meta": {
+    "gerado_em": "2026-10-06T15:40:27",
+    "gerado_em_br": "06/10/2026 15:40",
+    "fonte": "BCB-SGS  |  SELIC_TaxaBasica_Brasil.xlsm",
+    "autor": "JERRI DOS SANTOS",
+    "versao": "2.2"
+  },
+  "painel": {
+    "selic_atual": 13.75,
+    "mes_ref": 11,
+    "ano_ref": 2026,
+    "taxa_minima": 2.0,
+    "taxa_maxima": 42.0,
+    "total_meses": 297,
+    "total_anos": 28
+  },
+  "historico_mensal": [
+    {
+      "ano": 1999,
+      "mes": 3,
+      "taxa": 42.0,
+      "variacao": null
+    },
+    {
+      "ano": 1999,
+      "mes": 4,
+      "taxa": 32.0,
+      "variacao": -0.1
+    },
+    {
+      "ano": 1999,
+      "mes": 5,
+      "taxa": 23.5,
+      "variacao": -0.085
+    },
+    {
+      "ano": 1999,
+      "mes": 6,
+      "taxa": 21.0,
+      "variacao": -0.025
+    },
+    {
+      "ano": 1999,
+      "mes": 7,
+      "taxa": 19.5,
+      "variacao": -0.015
+    },
+    {
+      "ano": 1999,
+      "mes": 8,
+      "taxa": 19.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 1999,
+      "mes": 9,
+      "taxa": 19.0,
+      "variacao": -0.005
+    },
+    {
+      "ano": 1999,
+      "mes": 10,
+      "taxa": 19.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 1999,
+      "mes": 11,
+      "taxa": 19.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 1999,
+      "mes": 12,
+      "taxa": 19.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2000,
+      "mes": 1,
+      "taxa": 19.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2000,
+      "mes": 2,
+      "taxa": 19.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2000,
+      "mes": 3,
+      "taxa": 18.5,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2000,
+      "mes": 4,
+      "taxa": 18.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2000,
+      "mes": 5,
+      "taxa": 18.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2000,
+      "mes": 6,
+      "taxa": 17.5,
+      "variacao": -0.01
+    },
+    {
+      "ano": 2000,
+      "mes": 7,
+      "taxa": 16.5,
+      "variacao": -0.01
+    },
+    {
+      "ano": 2000,
+      "mes": 8,
+      "taxa": 16.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2000,
+      "mes": 9,
+      "taxa": 16.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2000,
+      "mes": 10,
+      "taxa": 16.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2000,
+      "mes": 11,
+      "taxa": 16.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2000,
+      "mes": 12,
+      "taxa": 15.75,
+      "variacao": -0.0075
+    },
+    {
+      "ano": 2001,
+      "mes": 1,
+      "taxa": 15.25,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2001,
+      "mes": 2,
+      "taxa": 15.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2001,
+      "mes": 3,
+      "taxa": 15.75,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2001,
+      "mes": 4,
+      "taxa": 16.25,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2001,
+      "mes": 5,
+      "taxa": 16.75,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2001,
+      "mes": 6,
+      "taxa": 18.25,
+      "variacao": 0.015
+    },
+    {
+      "ano": 2001,
+      "mes": 7,
+      "taxa": 19.0,
+      "variacao": 0.0075
+    },
+    {
+      "ano": 2001,
+      "mes": 8,
+      "taxa": 19.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2001,
+      "mes": 9,
+      "taxa": 19.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2001,
+      "mes": 10,
+      "taxa": 19.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2001,
+      "mes": 11,
+      "taxa": 19.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2001,
+      "mes": 12,
+      "taxa": 19.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2002,
+      "mes": 1,
+      "taxa": 19.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2002,
+      "mes": 2,
+      "taxa": 18.75,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2002,
+      "mes": 3,
+      "taxa": 18.5,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2002,
+      "mes": 4,
+      "taxa": 18.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2002,
+      "mes": 5,
+      "taxa": 18.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2002,
+      "mes": 6,
+      "taxa": 18.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2002,
+      "mes": 7,
+      "taxa": 18.0,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2002,
+      "mes": 8,
+      "taxa": 18.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2002,
+      "mes": 9,
+      "taxa": 18.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2002,
+      "mes": 10,
+      "taxa": 21.0,
+      "variacao": 0.03
+    },
+    {
+      "ano": 2002,
+      "mes": 11,
+      "taxa": 22.0,
+      "variacao": 0.01
+    },
+    {
+      "ano": 2002,
+      "mes": 12,
+      "taxa": 25.0,
+      "variacao": 0.03
+    },
+    {
+      "ano": 2003,
+      "mes": 1,
+      "taxa": 25.5,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2003,
+      "mes": 2,
+      "taxa": 26.5,
+      "variacao": 0.01
+    },
+    {
+      "ano": 2003,
+      "mes": 3,
+      "taxa": 26.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2003,
+      "mes": 4,
+      "taxa": 26.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2003,
+      "mes": 5,
+      "taxa": 26.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2003,
+      "mes": 6,
+      "taxa": 26.0,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2003,
+      "mes": 7,
+      "taxa": 24.5,
+      "variacao": -0.015
+    },
+    {
+      "ano": 2003,
+      "mes": 8,
+      "taxa": 22.0,
+      "variacao": -0.025
+    },
+    {
+      "ano": 2003,
+      "mes": 9,
+      "taxa": 20.0,
+      "variacao": -0.02
+    },
+    {
+      "ano": 2003,
+      "mes": 10,
+      "taxa": 19.0,
+      "variacao": -0.01
+    },
+    {
+      "ano": 2003,
+      "mes": 11,
+      "taxa": 17.5,
+      "variacao": -0.015
+    },
+    {
+      "ano": 2003,
+      "mes": 12,
+      "taxa": 16.5,
+      "variacao": -0.01
+    },
+    {
+      "ano": 2004,
+      "mes": 1,
+      "taxa": 16.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2004,
+      "mes": 2,
+      "taxa": 16.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2004,
+      "mes": 3,
+      "taxa": 16.25,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2004,
+      "mes": 4,
+      "taxa": 16.0,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2004,
+      "mes": 5,
+      "taxa": 16.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2004,
+      "mes": 6,
+      "taxa": 16.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2004,
+      "mes": 7,
+      "taxa": 16.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2004,
+      "mes": 8,
+      "taxa": 16.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2004,
+      "mes": 9,
+      "taxa": 16.25,
+      "variacao": 0.0025
+    },
+    {
+      "ano": 2004,
+      "mes": 10,
+      "taxa": 16.75,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2004,
+      "mes": 11,
+      "taxa": 17.25,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2004,
+      "mes": 12,
+      "taxa": 17.75,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2005,
+      "mes": 1,
+      "taxa": 18.25,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2005,
+      "mes": 2,
+      "taxa": 18.75,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2005,
+      "mes": 3,
+      "taxa": 19.25,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2005,
+      "mes": 4,
+      "taxa": 19.5,
+      "variacao": 0.0025
+    },
+    {
+      "ano": 2005,
+      "mes": 5,
+      "taxa": 19.75,
+      "variacao": 0.0025
+    },
+    {
+      "ano": 2005,
+      "mes": 6,
+      "taxa": 19.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2005,
+      "mes": 7,
+      "taxa": 19.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2005,
+      "mes": 8,
+      "taxa": 19.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2005,
+      "mes": 9,
+      "taxa": 19.5,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2005,
+      "mes": 10,
+      "taxa": 19.0,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2005,
+      "mes": 11,
+      "taxa": 18.5,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2005,
+      "mes": 12,
+      "taxa": 18.0,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2006,
+      "mes": 1,
+      "taxa": 17.25,
+      "variacao": -0.0075
+    },
+    {
+      "ano": 2006,
+      "mes": 2,
+      "taxa": 17.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2006,
+      "mes": 3,
+      "taxa": 16.5,
+      "variacao": -0.0075
+    },
+    {
+      "ano": 2006,
+      "mes": 4,
+      "taxa": 15.75,
+      "variacao": -0.0075
+    },
+    {
+      "ano": 2006,
+      "mes": 5,
+      "taxa": 15.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2006,
+      "mes": 6,
+      "taxa": 15.25,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2006,
+      "mes": 7,
+      "taxa": 14.75,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2006,
+      "mes": 8,
+      "taxa": 14.25,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2006,
+      "mes": 9,
+      "taxa": 14.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2006,
+      "mes": 10,
+      "taxa": 13.75,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2006,
+      "mes": 11,
+      "taxa": 13.25,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2006,
+      "mes": 12,
+      "taxa": 13.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2007,
+      "mes": 1,
+      "taxa": 13.0,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2007,
+      "mes": 2,
+      "taxa": 13.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2007,
+      "mes": 3,
+      "taxa": 12.75,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2007,
+      "mes": 4,
+      "taxa": 12.5,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2007,
+      "mes": 5,
+      "taxa": 12.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2007,
+      "mes": 6,
+      "taxa": 12.0,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2007,
+      "mes": 7,
+      "taxa": 11.5,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2007,
+      "mes": 8,
+      "taxa": 11.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2007,
+      "mes": 9,
+      "taxa": 11.25,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2007,
+      "mes": 10,
+      "taxa": 11.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2007,
+      "mes": 11,
+      "taxa": 11.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2007,
+      "mes": 12,
+      "taxa": 11.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2008,
+      "mes": 1,
+      "taxa": 11.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2008,
+      "mes": 2,
+      "taxa": 11.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2008,
+      "mes": 3,
+      "taxa": 11.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2008,
+      "mes": 4,
+      "taxa": 11.75,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2008,
+      "mes": 5,
+      "taxa": 11.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2008,
+      "mes": 6,
+      "taxa": 12.25,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2008,
+      "mes": 7,
+      "taxa": 13.0,
+      "variacao": 0.0075
+    },
+    {
+      "ano": 2008,
+      "mes": 8,
+      "taxa": 13.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2008,
+      "mes": 9,
+      "taxa": 13.75,
+      "variacao": 0.0075
+    },
+    {
+      "ano": 2008,
+      "mes": 10,
+      "taxa": 13.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2008,
+      "mes": 11,
+      "taxa": 13.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2008,
+      "mes": 12,
+      "taxa": 13.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2009,
+      "mes": 1,
+      "taxa": 12.75,
+      "variacao": -0.01
+    },
+    {
+      "ano": 2009,
+      "mes": 2,
+      "taxa": 12.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2009,
+      "mes": 3,
+      "taxa": 11.25,
+      "variacao": -0.015
+    },
+    {
+      "ano": 2009,
+      "mes": 4,
+      "taxa": 10.25,
+      "variacao": -0.01
+    },
+    {
+      "ano": 2009,
+      "mes": 5,
+      "taxa": 10.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2009,
+      "mes": 6,
+      "taxa": 9.25,
+      "variacao": -0.01
+    },
+    {
+      "ano": 2009,
+      "mes": 7,
+      "taxa": 8.75,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2009,
+      "mes": 8,
+      "taxa": 8.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2009,
+      "mes": 9,
+      "taxa": 8.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2009,
+      "mes": 10,
+      "taxa": 8.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2009,
+      "mes": 11,
+      "taxa": 8.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2009,
+      "mes": 12,
+      "taxa": 8.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2010,
+      "mes": 1,
+      "taxa": 8.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2010,
+      "mes": 2,
+      "taxa": 8.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2010,
+      "mes": 3,
+      "taxa": 8.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2010,
+      "mes": 4,
+      "taxa": 9.5,
+      "variacao": 0.0075
+    },
+    {
+      "ano": 2010,
+      "mes": 5,
+      "taxa": 9.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2010,
+      "mes": 6,
+      "taxa": 10.25,
+      "variacao": 0.0075
+    },
+    {
+      "ano": 2010,
+      "mes": 7,
+      "taxa": 10.75,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2010,
+      "mes": 8,
+      "taxa": 10.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2010,
+      "mes": 9,
+      "taxa": 10.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2010,
+      "mes": 10,
+      "taxa": 10.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2010,
+      "mes": 11,
+      "taxa": 10.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2010,
+      "mes": 12,
+      "taxa": 10.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2011,
+      "mes": 1,
+      "taxa": 11.25,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2011,
+      "mes": 2,
+      "taxa": 11.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2011,
+      "mes": 3,
+      "taxa": 11.75,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2011,
+      "mes": 4,
+      "taxa": 12.0,
+      "variacao": 0.0025
+    },
+    {
+      "ano": 2011,
+      "mes": 5,
+      "taxa": 12.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2011,
+      "mes": 6,
+      "taxa": 12.25,
+      "variacao": 0.0025
+    },
+    {
+      "ano": 2011,
+      "mes": 7,
+      "taxa": 12.5,
+      "variacao": 0.0025
+    },
+    {
+      "ano": 2011,
+      "mes": 8,
+      "taxa": 12.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2011,
+      "mes": 9,
+      "taxa": 12.0,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2011,
+      "mes": 10,
+      "taxa": 11.5,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2011,
+      "mes": 11,
+      "taxa": 11.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2011,
+      "mes": 12,
+      "taxa": 11.0,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2012,
+      "mes": 1,
+      "taxa": 10.5,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2012,
+      "mes": 2,
+      "taxa": 10.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2012,
+      "mes": 3,
+      "taxa": 9.75,
+      "variacao": -0.0075
+    },
+    {
+      "ano": 2012,
+      "mes": 4,
+      "taxa": 9.0,
+      "variacao": -0.0075
+    },
+    {
+      "ano": 2012,
+      "mes": 5,
+      "taxa": 8.5,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2012,
+      "mes": 6,
+      "taxa": 8.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2012,
+      "mes": 7,
+      "taxa": 8.0,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2012,
+      "mes": 8,
+      "taxa": 7.5,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2012,
+      "mes": 9,
+      "taxa": 7.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2012,
+      "mes": 10,
+      "taxa": 7.25,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2012,
+      "mes": 11,
+      "taxa": 7.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2012,
+      "mes": 12,
+      "taxa": 7.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2013,
+      "mes": 1,
+      "taxa": 7.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2013,
+      "mes": 2,
+      "taxa": 7.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2013,
+      "mes": 3,
+      "taxa": 7.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2013,
+      "mes": 4,
+      "taxa": 7.5,
+      "variacao": 0.0025
+    },
+    {
+      "ano": 2013,
+      "mes": 5,
+      "taxa": 8.0,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2013,
+      "mes": 6,
+      "taxa": 8.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2013,
+      "mes": 7,
+      "taxa": 8.5,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2013,
+      "mes": 8,
+      "taxa": 9.0,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2013,
+      "mes": 9,
+      "taxa": 9.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2013,
+      "mes": 10,
+      "taxa": 9.5,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2013,
+      "mes": 11,
+      "taxa": 10.0,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2013,
+      "mes": 12,
+      "taxa": 10.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2014,
+      "mes": 1,
+      "taxa": 10.5,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2014,
+      "mes": 2,
+      "taxa": 10.75,
+      "variacao": 0.0025
+    },
+    {
+      "ano": 2014,
+      "mes": 3,
+      "taxa": 10.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2014,
+      "mes": 4,
+      "taxa": 11.0,
+      "variacao": 0.0025
+    },
+    {
+      "ano": 2014,
+      "mes": 5,
+      "taxa": 11.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2014,
+      "mes": 6,
+      "taxa": 11.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2014,
+      "mes": 7,
+      "taxa": 11.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2014,
+      "mes": 8,
+      "taxa": 11.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2014,
+      "mes": 9,
+      "taxa": 11.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2014,
+      "mes": 10,
+      "taxa": 11.25,
+      "variacao": 0.0025
+    },
+    {
+      "ano": 2014,
+      "mes": 11,
+      "taxa": 11.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2014,
+      "mes": 12,
+      "taxa": 11.75,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2016,
+      "mes": 1,
+      "taxa": 14.25,
+      "variacao": 0.025
+    },
+    {
+      "ano": 2016,
+      "mes": 2,
+      "taxa": 14.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2016,
+      "mes": 3,
+      "taxa": 14.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2016,
+      "mes": 4,
+      "taxa": 14.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2016,
+      "mes": 5,
+      "taxa": 14.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2016,
+      "mes": 6,
+      "taxa": 14.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2016,
+      "mes": 7,
+      "taxa": 14.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2016,
+      "mes": 8,
+      "taxa": 14.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2016,
+      "mes": 9,
+      "taxa": 14.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2016,
+      "mes": 10,
+      "taxa": 14.0,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2016,
+      "mes": 11,
+      "taxa": 14.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2016,
+      "mes": 12,
+      "taxa": 13.75,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2017,
+      "mes": 1,
+      "taxa": 13.0,
+      "variacao": -0.0075
+    },
+    {
+      "ano": 2017,
+      "mes": 2,
+      "taxa": 12.25,
+      "variacao": -0.0075
+    },
+    {
+      "ano": 2017,
+      "mes": 3,
+      "taxa": 12.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2017,
+      "mes": 4,
+      "taxa": 11.25,
+      "variacao": -0.01
+    },
+    {
+      "ano": 2017,
+      "mes": 5,
+      "taxa": 11.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2017,
+      "mes": 6,
+      "taxa": 10.25,
+      "variacao": -0.01
+    },
+    {
+      "ano": 2017,
+      "mes": 7,
+      "taxa": 9.25,
+      "variacao": -0.01
+    },
+    {
+      "ano": 2017,
+      "mes": 8,
+      "taxa": 9.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2017,
+      "mes": 9,
+      "taxa": 8.25,
+      "variacao": -0.01
+    },
+    {
+      "ano": 2017,
+      "mes": 10,
+      "taxa": 7.5,
+      "variacao": -0.0075
+    },
+    {
+      "ano": 2017,
+      "mes": 11,
+      "taxa": 7.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2017,
+      "mes": 12,
+      "taxa": 7.0,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2018,
+      "mes": 1,
+      "taxa": 7.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2018,
+      "mes": 2,
+      "taxa": 6.75,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2018,
+      "mes": 3,
+      "taxa": 6.5,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2018,
+      "mes": 4,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2018,
+      "mes": 5,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2018,
+      "mes": 6,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2018,
+      "mes": 7,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2018,
+      "mes": 8,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2018,
+      "mes": 9,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2018,
+      "mes": 10,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2018,
+      "mes": 11,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2018,
+      "mes": 12,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2019,
+      "mes": 1,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2019,
+      "mes": 2,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2019,
+      "mes": 3,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2019,
+      "mes": 4,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2019,
+      "mes": 5,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2019,
+      "mes": 6,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2019,
+      "mes": 7,
+      "taxa": 6.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2019,
+      "mes": 8,
+      "taxa": 6.0,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2019,
+      "mes": 9,
+      "taxa": 5.5,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2019,
+      "mes": 10,
+      "taxa": 5.0,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2019,
+      "mes": 11,
+      "taxa": 5.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2019,
+      "mes": 12,
+      "taxa": 4.5,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2020,
+      "mes": 1,
+      "taxa": 4.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2020,
+      "mes": 2,
+      "taxa": 4.25,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2020,
+      "mes": 3,
+      "taxa": 3.75,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2020,
+      "mes": 4,
+      "taxa": 3.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2020,
+      "mes": 5,
+      "taxa": 3.0,
+      "variacao": -0.0075
+    },
+    {
+      "ano": 2020,
+      "mes": 6,
+      "taxa": 2.25,
+      "variacao": -0.0075
+    },
+    {
+      "ano": 2020,
+      "mes": 7,
+      "taxa": 2.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2020,
+      "mes": 8,
+      "taxa": 2.0,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2020,
+      "mes": 9,
+      "taxa": 2.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2020,
+      "mes": 10,
+      "taxa": 2.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2020,
+      "mes": 11,
+      "taxa": 2.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2020,
+      "mes": 12,
+      "taxa": 2.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2023,
+      "mes": 1,
+      "taxa": 13.75,
+      "variacao": 0.1175
+    },
+    {
+      "ano": 2023,
+      "mes": 2,
+      "taxa": 13.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2023,
+      "mes": 3,
+      "taxa": 13.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2023,
+      "mes": 4,
+      "taxa": 13.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2023,
+      "mes": 5,
+      "taxa": 13.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2023,
+      "mes": 6,
+      "taxa": 13.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2023,
+      "mes": 7,
+      "taxa": 13.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2023,
+      "mes": 8,
+      "taxa": 13.25,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2023,
+      "mes": 9,
+      "taxa": 12.75,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2023,
+      "mes": 10,
+      "taxa": 12.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2023,
+      "mes": 11,
+      "taxa": 12.25,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2023,
+      "mes": 12,
+      "taxa": 11.75,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2024,
+      "mes": 1,
+      "taxa": 11.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2024,
+      "mes": 2,
+      "taxa": 11.25,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2024,
+      "mes": 3,
+      "taxa": 10.75,
+      "variacao": -0.005
+    },
+    {
+      "ano": 2024,
+      "mes": 4,
+      "taxa": 10.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2024,
+      "mes": 5,
+      "taxa": 10.5,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2024,
+      "mes": 6,
+      "taxa": 10.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2024,
+      "mes": 7,
+      "taxa": 10.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2024,
+      "mes": 8,
+      "taxa": 10.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2024,
+      "mes": 9,
+      "taxa": 10.75,
+      "variacao": 0.0025
+    },
+    {
+      "ano": 2024,
+      "mes": 10,
+      "taxa": 10.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2024,
+      "mes": 11,
+      "taxa": 11.25,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2024,
+      "mes": 12,
+      "taxa": 12.25,
+      "variacao": 0.01
+    },
+    {
+      "ano": 2025,
+      "mes": 1,
+      "taxa": 13.25,
+      "variacao": 0.01
+    },
+    {
+      "ano": 2025,
+      "mes": 2,
+      "taxa": 13.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2025,
+      "mes": 3,
+      "taxa": 14.25,
+      "variacao": 0.01
+    },
+    {
+      "ano": 2025,
+      "mes": 4,
+      "taxa": 14.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2025,
+      "mes": 5,
+      "taxa": 14.75,
+      "variacao": 0.005
+    },
+    {
+      "ano": 2025,
+      "mes": 6,
+      "taxa": 15.0,
+      "variacao": 0.0025
+    },
+    {
+      "ano": 2025,
+      "mes": 7,
+      "taxa": 15.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2025,
+      "mes": 8,
+      "taxa": 15.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2025,
+      "mes": 9,
+      "taxa": 15.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2025,
+      "mes": 10,
+      "taxa": 15.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2025,
+      "mes": 11,
+      "taxa": 15.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2025,
+      "mes": 12,
+      "taxa": 15.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2026,
+      "mes": 1,
+      "taxa": 15.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2026,
+      "mes": 2,
+      "taxa": 15.0,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2026,
+      "mes": 3,
+      "taxa": 14.75,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2026,
+      "mes": 4,
+      "taxa": 14.5,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2026,
+      "mes": 5,
+      "taxa": 14.5,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2026,
+      "mes": 6,
+      "taxa": 14.25,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2026,
+      "mes": 7,
+      "taxa": 14.25,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2026,
+      "mes": 8,
+      "taxa": 14.0,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2026,
+      "mes": 9,
+      "taxa": 13.75,
+      "variacao": -0.0025
+    },
+    {
+      "ano": 2026,
+      "mes": 10,
+      "taxa": 13.75,
+      "variacao": 0.0
+    },
+    {
+      "ano": 2026,
+      "mes": 11,
+      "taxa": 13.75,
+      "variacao": 13.6125
+    }
+  ],
+  "consolidado_anual": [
+    {
+      "ano": 2004,
+      "tx_inicio": 16.5,
+      "tx_fim": 17.75,
+      "tx_media": 16.4375,
+      "tx_maxima": 17.75,
+      "tx_minima": 16.0,
+      "var_anual": 0.01
+    },
+    {
+      "ano": 2005,
+      "tx_inicio": 18.25,
+      "tx_fim": 18.0,
+      "tx_media": 19.1458,
+      "tx_maxima": 19.75,
+      "tx_minima": 18.0,
+      "var_anual": -0.0
+    },
+    {
+      "ano": 2006,
+      "tx_inicio": 17.25,
+      "tx_fim": 13.25,
+      "tx_media": 15.1042,
+      "tx_maxima": 17.25,
+      "tx_minima": 13.25,
+      "var_anual": -0.04
+    },
+    {
+      "ano": 2007,
+      "tx_inicio": 13.0,
+      "tx_fim": 11.25,
+      "tx_media": 11.9792,
+      "tx_maxima": 13.0,
+      "tx_minima": 11.25,
+      "var_anual": -0.02
+    },
+    {
+      "ano": 2008,
+      "tx_inicio": 11.25,
+      "tx_fim": 13.75,
+      "tx_media": 12.5417,
+      "tx_maxima": 13.75,
+      "tx_minima": 11.25,
+      "var_anual": 0.03
+    },
+    {
+      "ano": 2009,
+      "tx_inicio": 12.75,
+      "tx_fim": 8.75,
+      "tx_media": 9.9167,
+      "tx_maxima": 12.75,
+      "tx_minima": 8.75,
+      "var_anual": -0.04
+    },
+    {
+      "ano": 2010,
+      "tx_inicio": 8.75,
+      "tx_fim": 10.75,
+      "tx_media": 10.0,
+      "tx_maxima": 10.75,
+      "tx_minima": 8.75,
+      "var_anual": 0.02
+    },
+    {
+      "ano": 2011,
+      "tx_inicio": 11.25,
+      "tx_fim": 11.0,
+      "tx_media": 11.7917,
+      "tx_maxima": 12.5,
+      "tx_minima": 11.0,
+      "var_anual": -0.0
+    },
+    {
+      "ano": 2012,
+      "tx_inicio": 10.5,
+      "tx_fim": 7.25,
+      "tx_media": 8.4583,
+      "tx_maxima": 10.5,
+      "tx_minima": 7.25,
+      "var_anual": -0.03
+    },
+    {
+      "ano": 2013,
+      "tx_inicio": 7.25,
+      "tx_fim": 10.0,
+      "tx_media": 8.4375,
+      "tx_maxima": 10.0,
+      "tx_minima": 7.25,
+      "var_anual": 0.03
+    },
+    {
+      "ano": 2014,
+      "tx_inicio": 10.5,
+      "tx_fim": 11.75,
+      "tx_media": 11.0208,
+      "tx_maxima": 11.75,
+      "tx_minima": 10.5,
+      "var_anual": 0.01
+    },
+    {
+      "ano": 2015,
+      "tx_inicio": null,
+      "tx_fim": null,
+      "tx_media": null,
+      "tx_maxima": 0.0,
+      "tx_minima": 0.0,
+      "var_anual": null
+    },
+    {
+      "ano": 2016,
+      "tx_inicio": 14.25,
+      "tx_fim": 13.75,
+      "tx_media": 14.1667,
+      "tx_maxima": 14.25,
+      "tx_minima": 13.75,
+      "var_anual": -0.0
+    },
+    {
+      "ano": 2017,
+      "tx_inicio": 13.0,
+      "tx_fim": 7.0,
+      "tx_media": 9.9167,
+      "tx_maxima": 13.0,
+      "tx_minima": 7.0,
+      "var_anual": -0.06
+    },
+    {
+      "ano": 2018,
+      "tx_inicio": 7.0,
+      "tx_fim": 6.5,
+      "tx_media": 6.5625,
+      "tx_maxima": 7.0,
+      "tx_minima": 6.5,
+      "var_anual": -0.01
+    },
+    {
+      "ano": 2019,
+      "tx_inicio": 6.5,
+      "tx_fim": 4.5,
+      "tx_media": 5.9583,
+      "tx_maxima": 6.5,
+      "tx_minima": 4.5,
+      "var_anual": -0.02
+    },
+    {
+      "ano": 2020,
+      "tx_inicio": 4.5,
+      "tx_fim": 2.0,
+      "tx_media": 2.8125,
+      "tx_maxima": 4.5,
+      "tx_minima": 2.0,
+      "var_anual": -0.02
+    },
+    {
+      "ano": 2021,
+      "tx_inicio": 2.0,
+      "tx_fim": 9.25,
+      "tx_media": 4.8125,
+      "tx_maxima": 9.25,
+      "tx_minima": 2.0,
+      "var_anual": 0.07
+    },
+    {
+      "ano": 2022,
+      "tx_inicio": 9.25,
+      "tx_fim": 13.75,
+      "tx_media": 12.625,
+      "tx_maxima": 13.75,
+      "tx_minima": 9.25,
+      "var_anual": 0.05
+    },
+    {
+      "ano": 2023,
+      "tx_inicio": 13.75,
+      "tx_fim": 11.75,
+      "tx_media": 13.25,
+      "tx_maxima": 13.75,
+      "tx_minima": 11.75,
+      "var_anual": -0.02
+    },
+    {
+      "ano": 2024,
+      "tx_inicio": 11.75,
+      "tx_fim": 12.25,
+      "tx_media": 10.9583,
+      "tx_maxima": 12.25,
+      "tx_minima": 10.5,
+      "var_anual": 0.01
+    },
+    {
+      "ano": 2025,
+      "tx_inicio": 13.25,
+      "tx_fim": 15.0,
+      "tx_media": 14.5625,
+      "tx_maxima": 15.0,
+      "tx_minima": 13.25,
+      "var_anual": 0.02
+    },
+    {
+      "ano": 2026,
+      "tx_inicio": 15.0,
+      "tx_fim": 13.75,
+      "tx_media": null,
+      "tx_maxima": 13.75,
+      "tx_minima": 13.75,
+      "var_anual": 13.6
+    },
+    {
+      "ano": 1999,
+      "tx_inicio": 42.0,
+      "tx_fim": 19.0,
+      "tx_media": null,
+      "tx_maxima": 42.0,
+      "tx_minima": 19.0,
+      "var_anual": -0.23
+    },
+    {
+      "ano": 2000,
+      "tx_inicio": 19.0,
+      "tx_fim": 15.75,
+      "tx_media": 17.4375,
+      "tx_maxima": 19.0,
+      "tx_minima": 15.75,
+      "var_anual": -0.03
+    },
+    {
+      "ano": 2001,
+      "tx_inicio": 15.25,
+      "tx_fim": 19.0,
+      "tx_media": 17.625,
+      "tx_maxima": 19.0,
+      "tx_minima": 15.25,
+      "var_anual": 0.04
+    },
+    {
+      "ano": 2002,
+      "tx_inicio": 19.0,
+      "tx_fim": 25.0,
+      "tx_media": 19.4792,
+      "tx_maxima": 25.0,
+      "tx_minima": 18.0,
+      "var_anual": 0.06
+    },
+    {
+      "ano": 2003,
+      "tx_inicio": 25.5,
+      "tx_fim": 16.5,
+      "tx_media": 23.0833,
+      "tx_maxima": 26.5,
+      "tx_minima": 16.5,
+      "var_anual": -0.09
+    }
+  ],
+  "previsao": [
+    {
+      "ano": 2020,
+      "selic_focus": 2.0,
+      "selic_real": 2.0,
+      "ipca_focus": 4.37,
+      "ipca_real": 4.52,
+      "pib_focus": -4.2,
+      "pib_real": -3.28,
+      "cambio_focus": null,
+      "cambio_real": 5.2,
+      "igpm_focus": 23.74,
+      "igpm_real": 23.14
+    },
+    {
+      "ano": 2021,
+      "selic_focus": 9.25,
+      "selic_real": 9.25,
+      "ipca_focus": 9.98,
+      "ipca_real": 10.06,
+      "pib_focus": 4.5,
+      "pib_real": 4.76,
+      "cambio_focus": null,
+      "cambio_real": 5.58,
+      "igpm_focus": 17.47,
+      "igpm_real": 17.79
+    },
+    {
+      "ano": 2022,
+      "selic_focus": 13.75,
+      "selic_real": 13.75,
+      "ipca_focus": 5.62,
+      "ipca_real": 5.79,
+      "pib_focus": 3.0,
+      "pib_real": 3.02,
+      "cambio_focus": null,
+      "cambio_real": 5.22,
+      "igpm_focus": 5.52,
+      "igpm_real": 5.46
+    },
+    {
+      "ano": 2023,
+      "selic_focus": 11.75,
+      "selic_real": 11.75,
+      "ipca_focus": 4.48,
+      "ipca_real": 4.62,
+      "pib_focus": 2.95,
+      "pib_real": 3.24,
+      "cambio_focus": null,
+      "cambio_real": 4.84,
+      "igpm_focus": -3.36,
+      "igpm_real": -3.18
+    },
+    {
+      "ano": 2024,
+      "selic_focus": 12.0,
+      "selic_real": 12.25,
+      "ipca_focus": 4.89,
+      "ipca_real": 4.83,
+      "pib_focus": 3.49,
+      "pib_real": 3.42,
+      "cambio_focus": null,
+      "cambio_real": 6.19,
+      "igpm_focus": 6.61,
+      "igpm_real": 6.54
+    },
+    {
+      "ano": 2025,
+      "selic_focus": 15.0,
+      "selic_real": 15.0,
+      "ipca_focus": 4.3,
+      "ipca_real": 4.26,
+      "pib_focus": 2.27,
+      "pib_real": 2.29,
+      "cambio_focus": null,
+      "cambio_real": 5.5,
+      "igpm_focus": -0.8,
+      "igpm_real": -1.04
+    },
+    {
+      "ano": 2026,
+      "selic_focus": 13.5,
+      "selic_real": null,
+      "ipca_focus": 4.99,
+      "ipca_real": null,
+      "pib_focus": 1.86,
+      "pib_real": null,
+      "cambio_focus": null,
+      "cambio_real": null,
+      "igpm_focus": 4.76,
+      "igpm_real": 3.45
+    },
+    {
+      "ano": 2027,
+      "selic_focus": 12.0,
+      "selic_real": null,
+      "ipca_focus": 4.31,
+      "ipca_real": null,
+      "pib_focus": 1.41,
+      "pib_real": null,
+      "cambio_focus": null,
+      "cambio_real": null,
+      "igpm_focus": 4.11,
+      "igpm_real": null
+    },
+    {
+      "ano": 2028,
+      "selic_focus": 10.5,
+      "selic_real": null,
+      "ipca_focus": 3.8,
+      "ipca_real": null,
+      "pib_focus": 1.82,
+      "pib_real": null,
+      "cambio_focus": null,
+      "cambio_real": null,
+      "igpm_focus": 3.92,
+      "igpm_real": null
+    },
+    {
+      "ano": 2029,
+      "selic_focus": 10.0,
+      "selic_real": null,
+      "ipca_focus": 3.5,
+      "ipca_real": null,
+      "pib_focus": 2.0,
+      "pib_real": null,
+      "cambio_focus": null,
+      "cambio_real": null,
+      "igpm_focus": 3.81,
+      "igpm_real": null
+    },
+    {
+      "ano": 2030,
+      "selic_focus": 10.0,
+      "selic_real": null,
+      "ipca_focus": 3.5,
+      "ipca_real": null,
+      "pib_focus": 2.0,
+      "pib_real": null,
+      "cambio_focus": null,
+      "cambio_real": null,
+      "igpm_focus": 3.8,
+      "igpm_real": null
+    }
+  ],
+  "fiscal": {
+    "status": "ok",
+    "ultimo_ano": 2025,
+    "anos": [
+      1999,
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "pib_bi": [
+      1087.7,
+      1199.1,
+      1315.8,
+      1488.8,
+      1718.0,
+      1957.8,
+      2170.6,
+      2409.4,
+      2720.3,
+      3109.8,
+      3333.0,
+      3885.8,
+      4376.4,
+      4814.8,
+      5331.6,
+      5779.0,
+      5995.8,
+      6269.3,
+      6585.5,
+      7004.1,
+      7389.1,
+      7609.6,
+      9012.1,
+      10079.7,
+      10943.3,
+      11779.3,
+      12738.6,
+      null
+    ],
+    "pib_tri": [
+      1.088,
+      1.199,
+      1.316,
+      1.489,
+      1.718,
+      1.958,
+      2.171,
+      2.409,
+      2.72,
+      3.11,
+      3.333,
+      3.886,
+      4.376,
+      4.815,
+      5.332,
+      5.779,
+      5.996,
+      6.269,
+      6.585,
+      7.004,
+      7.389,
+      7.61,
+      9.012,
+      10.08,
+      10.943,
+      11.779,
+      12.739,
+      null
+    ],
+    "pib_var": [
+      0.5,
+      4.4,
+      1.4,
+      3.0,
+      1.1,
+      5.8,
+      3.2,
+      4.0,
+      6.1,
+      5.1,
+      -0.1,
+      7.5,
+      4.0,
+      1.9,
+      3.0,
+      0.5,
+      -3.5,
+      -3.3,
+      1.3,
+      1.8,
+      1.2,
+      -3.3,
+      4.8,
+      3.0,
+      3.2,
+      3.4,
+      2.3,
+      null
+    ],
+    "div_bruta": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      55.5,
+      56.7,
+      null,
+      null,
+      51.8,
+      51.3,
+      53.7,
+      51.5,
+      56.3,
+      65.5,
+      69.8,
+      73.7,
+      75.3,
+      74.4,
+      86.9,
+      77.3,
+      71.7,
+      null,
+      76.3,
+      78.6,
+      null
+    ],
+    "div_liq": [
+      null,
+      null,
+      null,
+      37.7,
+      33.7,
+      30.7,
+      30.6,
+      30.5,
+      30.0,
+      23.4,
+      28.0,
+      25.8,
+      23.1,
+      20.8,
+      19.2,
+      20.8,
+      21.9,
+      33.3,
+      38.5,
+      39.5,
+      41.7,
+      48.0,
+      44.7,
+      47.0,
+      51.7,
+      52.4,
+      56.5,
+      60.8
+    ],
+    "res_prim": [
+      3.45,
+      4.04,
+      1.68,
+      2.52,
+      5.74,
+      2.83,
+      1.73,
+      0.92,
+      1.06,
+      2.13,
+      1.05,
+      1.1,
+      1.94,
+      1.73,
+      1.53,
+      1.38,
+      1.73,
+      2.9,
+      0.99,
+      0.86,
+      1.13,
+      1.0,
+      -0.65,
+      -2.99,
+      -0.36,
+      2.5,
+      1.8,
+      null
+    ],
+    "res_prim_rbi": [
+      37.6,
+      48.4,
+      22.1,
+      37.5,
+      98.7,
+      55.4,
+      37.5,
+      22.2,
+      28.7,
+      66.4,
+      35.1,
+      42.8,
+      85.0,
+      83.1,
+      81.6,
+      79.7,
+      103.7,
+      181.6,
+      65.4,
+      60.5,
+      83.2,
+      76.2,
+      -58.3,
+      -301.8,
+      -39.1,
+      294.6,
+      229.7,
+      30.8
+    ],
+    "res_nom": [
+      -2.31,
+      -0.46,
+      0.65,
+      5.39,
+      1.33,
+      1.73,
+      0.12,
+      -3.03,
+      -2.26,
+      2.07,
+      0.43,
+      3.01,
+      3.08,
+      2.97,
+      3.99,
+      2.24,
+      3.66,
+      1.92,
+      3.69,
+      7.44,
+      2.08,
+      -3.04,
+      0.01,
+      2.55,
+      -3.58,
+      -10.01,
+      2.08,
+      null
+    ],
+    "res_nom_rbi": [
+      -25.1,
+      -5.6,
+      8.5,
+      80.3,
+      22.8,
+      33.8,
+      2.6,
+      -72.9,
+      -61.6,
+      64.4,
+      14.3,
+      116.8,
+      134.9,
+      143.1,
+      212.5,
+      129.2,
+      219.6,
+      120.6,
+      243.3,
+      520.9,
+      154.0,
+      -231.1,
+      0.7,
+      256.9,
+      -391.9,
+      -1179.2,
+      265.5,
+      -7.6
+    ]
+  }
+}
